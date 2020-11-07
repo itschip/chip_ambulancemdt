@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+.mdt-wrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.295);
+}
+
+.mdt-content {
+  margin: auto;
+  width: 1100px;
+  height: 600px;
+  background-size: cover;
+  background:#232323;
+}
+
