@@ -4,15 +4,14 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
+import TableRow from '@material-ui/core/TableRow'; 
 import { Chip } from '@material-ui/core';
 
 import useStyles from './units.styles';
 import { useUnits } from '../../hooks/useUnits';
 
 const Units = () => {
-  const { units, setUnits } = useUnits();
+  const { units } = useUnits();
   const classes = useStyles();
 
   const UnitStatus = {

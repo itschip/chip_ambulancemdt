@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 export default {
   async send(event: any, data = {}) {
     /* eslint-disable no-unreachable */

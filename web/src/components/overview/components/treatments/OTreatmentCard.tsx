@@ -1,5 +1,4 @@
 import { Card, CardActions, CardContent, Typography, Button, Chip } from '@material-ui/core'
-import { TranslateTwoTone } from '@material-ui/icons';
 import React from 'react'
 
 import useStyles from './otreatments.styles';

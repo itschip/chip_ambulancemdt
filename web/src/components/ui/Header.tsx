@@ -1,14 +1,13 @@
 import React from 'react'
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import InputBase from '@material-ui/core/InputBase';
 import { createStyles, fade, Theme, makeStyles } from '@material-ui/core/styles';
-import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import Logo from '../../logo.png'
 import { Button } from '@material-ui/core';
+import { NavButton } from './UIButton'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -84,14 +83,10 @@ const Header = () => {
       <AppBar position="static" variant="outlined" className={classes.appBar}>
         <Toolbar>
           <Typography className={classes.title} variant="h6" noWrap>
-            <img src={Logo} width={300} style={{ marginTop: 10 }} />
+            <img alt="logo" src={Logo} width={300} style={{ marginTop: 10 }} />
           </Typography>
-          <Button className={classes.navLink}>
-            Oversikt
-          </Button>
-          <Button className={classes.navLink}> 
-            Pasienter
-          </Button>
+          <NavButton to="/" label="Oversikt" className={classes.navLink} />
+          <NavButton to="/patients" label="Pasienter" className={classes.navLink} /> 
           <Button className={classes.navLink}>
             Behandlinger
           </Button>

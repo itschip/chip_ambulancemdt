@@ -8,8 +8,12 @@ import { useCadService } from './core/hooks/useCadService';
 import { useNuiService } from './nui-events/hooks/useNuiService';
 import { useOverviewService } from './components/overview/hooks/useOverviewService';
 
+import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+
 // show and hide cad
 import { useVisibility } from './core/hooks/useVisibility';
+import PatientContainer from './components/patients/PatientContainer';
+import { usePatientService } from './components/patients/hooks/usePatientService';
 
 
 setTimeout(() => {
@@ -42,6 +46,42 @@ setTimeout(() => {
             note: "Brukket arm. Fått med smertestillende hjem.",
             doctor: "Frode Ortevik",
             tags: ["en annen tag"]
+          },
+          {
+            id: 4,
+            name: "Cody Axelson",
+            date: "07/11/20",
+            note: "Brukket arm. Fått med smertestillende hjem.",
+            doctor: "Frode Ortevik",
+            tags: ["en annen tag"]
+          }
+        ]
+      }
+    })
+  )
+}, 1000)
+
+setTimeout(() => {
+  window.dispatchEvent(
+    new MessageEvent("message", {
+      data: {
+        app: "PATIENTS",
+        method: "setPatients",
+        data: [
+          {
+            id: 1,
+            name: "Petter Moen",
+            age: 24
+          },
+          {
+            id: 2,
+            name: "Cody Axelson",
+            age: 22
+          },
+          {
+            id: 3,
+            name: "Frode Ortevik",
+            age: 36
           }
         ]
       }
@@ -83,12 +123,20 @@ function App() {
   useCadService();
   useTreatmentService();
   useOverviewService();
+  usePatientService();
   return (
     <div style={ visibility ? { visibility: 'visible' } : { visibility: 'hidden' }}>
     <Wrapper>
       <ContentWrapper>
-        <Header />
-        <OverviewContainer />
+        <Router>
+          <>
+            <Header />
+            <Switch>
+              <Route exact path="/" component={OverviewContainer} />
+              <Route path="/patients" component={PatientContainer} />
+            </Switch>
+          </>
+        </Router>
       </ContentWrapper>
     </Wrapper>
     </div>
