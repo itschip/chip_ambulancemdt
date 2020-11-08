@@ -1,0 +1,9 @@
+.overview-section .MuiChip-root {
+  background: #fff;
+  margin: 5px;
+}
+
+.overview-section .MuiChip-label {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+}

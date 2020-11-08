@@ -10,6 +10,9 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 28,
     marginLeft: 10,
     fontWeight: 600
+  },
+  firstGrid: {
+    display: 'flex'
   }
 }))
 

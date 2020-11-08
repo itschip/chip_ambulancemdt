@@ -4,5 +4,6 @@ export interface ITreatmentCard {
   date: string;
   note: string;
   doctor: string;
+  tags?: string[];
   map?: any;
 }

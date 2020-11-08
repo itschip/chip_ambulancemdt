@@ -19,6 +19,12 @@ const useStyles = makeStyles({
     fontFamily: "'Montserrat', sans-serif",
     color: '#fff'
   },
+  cardChip: {
+    display: 'flex',
+    width: 'auto',
+    margin: 10,
+    marginBottom: -15
+  },
   cardFooter: {
     marginTop: 20,
     marginBottom: -20
