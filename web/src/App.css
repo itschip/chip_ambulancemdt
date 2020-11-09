@@ -2,6 +2,11 @@
 
 * {
   box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif,
+}
+
+h1 {
+  font-family: 'Montserrat', sans-serif,
 }
 
 .mdt-wrapper {
@@ -26,4 +31,8 @@ a {
 
 .patient-card a {
   color: #4f9cdb;
+}
+
+.patient-overview * {
+  font-family: 'Montserrat', sans-serif,
 }

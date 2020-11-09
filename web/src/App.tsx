@@ -72,19 +72,25 @@ setTimeout(() => {
             id: 1,
             name: "Petter Moen",
             age: 24,
-            bloodtype: 'A'
+            number: 34034524,
+            bloodtype: 'A',
+            image: 'https://i.imgur.com/PCsjGEs.png'
           },
           {
             id: 2,
             name: "Cody Axelson",
             age: 22,
-            bloodtype: 'B'
+            number: 39495838,
+            bloodtype: 'B',
+            image: 'https://i.imgur.com/v3F2Hy1.gif'
           },
           {
             id: 3,
             name: "Frode Ortevik",
             age: 36,
-            bloodtype: 'Ukjent'
+            bloodtype: 'Ukjent',
+            number: 84758392,
+            image: 'https://i.imgur.com/cQGpehY.jpg'
           },
         ]
       }

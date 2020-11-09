@@ -1,5 +1,7 @@
 export interface IPatients {
   name: string;
+  image: string;
   age: any;
-  birth: string;
+  bloodtype: string;
+  number: number;
 }

@@ -2,14 +2,17 @@ import React from 'react'
 import { Card, CardContent, Typography, Button, CardActions } from '@material-ui/core';
 
 import useStyles from './card.styles';
-import { NavButton } from '../../../ui/UIButton';
-import { Link } from 'react-router-dom';
-import PatientPage from '../patient/PatientPage';
+import { usePatientModal } from '../../hooks/usePatientModal';
+import { usePatientCreds } from '../../hooks/usePatientCreds';
 
 const PatientCard = (patient) => {
+  const { setPatientModal } = usePatientModal();
+  const { setPatientCreds } = usePatientCreds();
 
   const showPatientModal = (patient) => {
-    
+    setPatientModal(true)
+    setPatientCreds(patient);
+
   }
 
   const classes = useStyles();

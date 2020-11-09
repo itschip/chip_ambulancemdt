@@ -8,5 +8,17 @@ export const patientState = {
   filterPatients: atom({
     key: 'filterPatient',
     default: ""
+  }),
+  showModal: atom({
+    key: 'patientModal',
+    default: false
+  }),
+  patientCredentials: atom({
+    key: 'patientCred',
+    default: null
+  }), 
+  patientTreatments: atom({
+    key: 'patientTreatments',
+    default: null  
   })
 }
