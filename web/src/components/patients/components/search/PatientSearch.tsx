@@ -1,10 +1,13 @@
 import React from 'react'
 import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
+import { useFilteredPatients } from '../../hooks/useFilteredPatients';
 
 import useStyles from './search.styles';
+
 const PatientSearch = () => {
   const classes = useStyles();
+  const { filterPatient, setFilterPatient } = useFilteredPatients();
   return (
     <div className={classes.search}>
       <div className={classes.searchIcon}>
@@ -13,6 +16,8 @@ const PatientSearch = () => {
       <InputBase
 
         placeholder="Søk etter pasient"
+        value={filterPatient}
+        onChange={e => setFilterPatient(e.target.value)}
         classes={{
           root: classes.inputRoot,
           input: classes.inputInput,
