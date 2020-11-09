@@ -71,18 +71,21 @@ setTimeout(() => {
           {
             id: 1,
             name: "Petter Moen",
-            age: 24
+            age: 24,
+            bloodtype: 'A'
           },
           {
             id: 2,
             name: "Cody Axelson",
-            age: 22
+            age: 22,
+            bloodtype: 'B'
           },
           {
             id: 3,
             name: "Frode Ortevik",
-            age: 36
-          }
+            age: 36,
+            bloodtype: 'Ukjent'
+          },
         ]
       }
     })
