@@ -1,0 +1,38 @@
+{
+  "name": "resources",
+  "version": "1.0.0",
+  "description": "client and server scripts for ambumdt",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Christopher Gjelten (chip)",
+  "license": "ISC",
+  "dependencies": {
+    "@citizenfx/client": "^1.0.3155-1",
+    "@citizenfx/server": "^1.0.3132-1",
+    "@types/node": "^14.14.7",
+    "axios": "^0.21.0",
+    "fivem-esx-js": "^0.1.12",
+    "mysql2": "^2.2.5"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.12.1",
+    "@babel/preset-typescript": "^7.12.1",
+    "@types/jest": "^26.0.14",
+    "@typescript-eslint/eslint-plugin": "^3.8.0",
+    "@typescript-eslint/parser": "^4.4.0",
+    "eslint": "^7.6.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-loader": "^4.0.2",
+    "husky": "^4.3.0",
+    "jest": "^26.5.3",
+    "prettier": "^2.0.5",
+    "remove-files-webpack-plugin": "^1.4.3",
+    "ts-jest": "^26.4.1",
+    "ts-loader": "^8.0.2",
+    "typescript": "^3.9.7",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  }
+}
