@@ -5,7 +5,7 @@ import Typography from '@material-ui/core/Typography';
 import InputBase from '@material-ui/core/InputBase';
 import { createStyles, fade, Theme, makeStyles } from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
-import Logo from '../../logo.png'
+//import Logo from '../../logo.png'
 import { Button } from '@material-ui/core';
 import { NavButton } from './UIButton'
 
@@ -83,7 +83,7 @@ const Header = () => {
       <AppBar position="static" variant="outlined" className={classes.appBar}>
         <Toolbar>
           <Typography className={classes.title} variant="h6" noWrap>
-            <img alt="logo" src={Logo} width={300} style={{ marginTop: 10 }} />
+            {/*<img alt="logo" src={Logo} width={300} style={{ marginTop: 10 }} />*/}
           </Typography>
           <NavButton to="/" label="Oversikt" className={classes.navLink} />
           <NavButton to="/patients" label="Pasienter" className={classes.navLink} /> 
