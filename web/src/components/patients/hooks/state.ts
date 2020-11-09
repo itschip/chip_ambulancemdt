@@ -7,6 +7,6 @@ export const patientState = {
   }),
   filterPatients: atom({
     key: 'filterPatient',
-    default: null
+    default: ""
   })
 }

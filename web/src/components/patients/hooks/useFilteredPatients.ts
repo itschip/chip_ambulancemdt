@@ -1,5 +1,7 @@
-import React from 'react'
+import { useRecoilState } from "recoil";
+import { patientState } from "./state";
 
 export const useFilteredPatients = () => {
-  return "yolo"
-}
+  const [filterPatient, setFilterPatient] = useRecoilState(patientState.filterPatients);
+  return { filterPatient, setFilterPatient };
+};
