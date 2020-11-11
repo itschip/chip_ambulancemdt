@@ -13,11 +13,6 @@ const PatientGrid = () => {
   return (
     <div style={{ marginTop: 30, margin: 20 }}>
       <Grid container spacing={4}>
-        {/*patients.map((patient) => (
-          <Grid item xs={2}> 
-            <PatientCard key={patient.id} {...patient}/>
-          </Grid>
-        ))*/}
         {patients.filter(patinet => patinet.name.includes(filterPatient)).map((patient) => (
           <Grid item xs={2}> 
             <PatientCard key={patient.id} {...patient}/>

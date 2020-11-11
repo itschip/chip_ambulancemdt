@@ -33,7 +33,7 @@ setTimeout(() => {
           },
           {
             id: 2,
-            name: "Cody Axelson",
+            name: "Petter Moen",
             date: "07/11/20",
             note: "Brukket arm. Fått med smertestillende hjem.",
             doctor: "Frode Ortevik",
@@ -49,10 +49,10 @@ setTimeout(() => {
           },
           {
             id: 4,
-            name: "Cody Axelson",
+            name: "Frode Ortevik",
             date: "07/11/20",
-            note: "Brukket arm. Fått med smertestillende hjem.",
-            doctor: "Frode Ortevik",
+            note: "Brukke ben. Fått med smertestillende hjem.",
+            doctor: "Cody Axelson",
             tags: ["en annen tag"]
           }
         ]

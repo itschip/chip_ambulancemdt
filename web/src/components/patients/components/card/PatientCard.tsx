@@ -12,7 +12,6 @@ const PatientCard = (patient) => {
   const showPatientModal = (patient) => {
     setPatientModal(true)
     setPatientCreds(patient);
-
   }
 
   const classes = useStyles();

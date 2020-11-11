@@ -1,4 +1,4 @@
-export interface ITreatmentCard {
+export interface ITreatment {
   id: number;
   name: string;
   date: string;
@@ -6,4 +6,6 @@ export interface ITreatmentCard {
   doctor: string;
   tags?: string[];
   map?: any;
+  slice?: any;
+  filter?: any;
 }

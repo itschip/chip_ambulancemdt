@@ -24,8 +24,55 @@ const useStyles = makeStyles((theme: Theme) => ({
     color: '#fff',
     fontFamily: "'Montserrat', sans-serif",
   },
+  editPatientBtn: {
+    color: '#fff',
+    background: '#4f9cdb',
+    margin: 30
+  },
   overviewContent: {
 
+  },
+  backgroundModal: {
+    background: "black",
+    opacity: "0.6",
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    zIndex: 5,
+  },
+  credsInput: {
+    color: '#fff',
+    fontFamily: "'Montserrat', sans-serif",
+    fontWeight: 500
+  },
+  credsInputBlood: {
+    color: '#fff',
+    fontFamily: "'Montserrat', sans-serif",
+    fontWeight: 500,
+    textAlign: 'center'
+  },
+  inputCreds: {
+    margin: 10,
+  },
+  closeCredModal: {
+    color: '#fff',
+    fontFamily: "'Montserrat', sans-serif",
+    fontWeight: 500,
+  },
+  saveButton: {
+    background: '#4f9cdb',
+    color: '#fff',
+    fontFamily: "'Montserrat', sans-serif",
+    fontWeight: 600,
+    height: 40
+  },
+  credsModalContainer: {
+    marginBottom: 20, 
+    display: 'flex', 
+    justifyContent: 'center', 
+    alignItems: 'center'
   }
 }))
 

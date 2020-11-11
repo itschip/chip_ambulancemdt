@@ -13,6 +13,10 @@ export const patientState = {
     key: 'patientModal',
     default: false
   }),
+  showCredsModal: atom({
+    key: 'showCredsModal',
+    default: false
+  }),
   patientCredentials: atom({
     key: 'patientCred',
     default: null

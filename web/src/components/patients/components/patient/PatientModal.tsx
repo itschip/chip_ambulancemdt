@@ -15,9 +15,10 @@ const PatientModal = () => {
     setPatientCreds(null);
   }
 
+
   return (
     <Modal visible={patientModal}>
-      <Button style={{ color: '#fff', fontWeight: 600, fontSize: 20 }} onClick={handleClose}>Lukk</Button>
+      <Button style={{ color: '#fff', fontWeight: 600, fontSize: 20, fontFamily: "'Montserrat', sans-serif", }} onClick={handleClose}>Lukk</Button>
       <PatientOverview />
     </Modal>
   )

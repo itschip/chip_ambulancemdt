@@ -1,9 +1,12 @@
 import { useRecoilValue } from 'recoil';
 import { treatmentState } from './state';
-import { ITreatmentCard } from '../../../interfaces/treatment';
+import { ITreatment } from '../../../interfaces/treatment';
 
+interface ITreatmentHook {
+  treatments: ITreatment | null
+}
 
-export const useTreatments = (): any => {
-  const treatments = useRecoilValue(treatmentState.treatments)
+export const useTreatments = (): ITreatmentHook => {
+  const treatments = useRecoilValue<ITreatment | null>(treatmentState.treatments)
   return { treatments }
 }
