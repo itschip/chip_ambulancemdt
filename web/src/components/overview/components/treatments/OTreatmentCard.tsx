@@ -1,5 +1,5 @@
 import { Card, CardActions, CardContent, Typography, Button, Chip } from '@material-ui/core'
-import React from 'react'
+import React, { useState } from 'react'
 
 import useStyles from './otreatments.styles';
 
@@ -14,6 +14,7 @@ const OTreatmentCard = (treatment) => {
     Kritisk: {background: '#ff4757', color: '#fff'},
     Behandlet: {background: 'fff', color: '#4f9cdb'}  
   }
+
 
   return (
     <Card className={classes.root}>

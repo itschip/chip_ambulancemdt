@@ -7,7 +7,7 @@ import { usePatientCreds } from '../../hooks/usePatientCreds';
 
 const PatientCard = (patient) => {
   const { setPatientModal } = usePatientModal();
-  const { setPatientCreds } = usePatientCreds();
+  const { patientCreds, setPatientCreds } = usePatientCreds();
 
   const showPatientModal = (patient) => {
     setPatientModal(true)

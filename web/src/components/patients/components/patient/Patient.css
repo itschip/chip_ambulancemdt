@@ -5,3 +5,31 @@
 .patient-overview {
   margin-bottom: 19.5em;
 }
+
+.patient-overview .MuiChip-label {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+}
+
+.patient-overview * {
+  font-family: 'Montserrat', sans-serif,
+}
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #4f9cdb; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #4f9cdb; 
+}

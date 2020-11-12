@@ -30,7 +30,19 @@ const useStyles = makeStyles((theme: Theme) => ({
     margin: 30
   },
   overviewContent: {
-
+    maxHeight: 90
+  },
+  overviewTitle: {
+    color: '#fff',
+    fontFamily: "'Montserrat', sans-serif",
+    fontSize: 28,
+    fontWeight: 600,
+    margin: 10
+  },
+  overviewCards: {
+    maxHeight: 350,
+    overflow: 'auto',
+    overflowX: 'hidden'
   },
   backgroundModal: {
     background: "black",
@@ -73,6 +85,35 @@ const useStyles = makeStyles((theme: Theme) => ({
     display: 'flex', 
     justifyContent: 'center', 
     alignItems: 'center'
+  },
+  root: {
+    maxWidth: 345,
+    maxHeight: 250,
+    background: '#4f9cdb',
+    color: '#fff',
+    margin: 10
+  },
+  cardChip: {
+    display: 'flex',
+    width: 'auto',
+    margin: 10,
+    marginBottom: -15
+  },
+  cardHeader: {
+    fontFamily: "'Montserrat', sans-serif",
+    fontWeight: 600,
+    fontSize: 20,
+    borderBottom: '2px solid #fff',
+    marginBottom: 15,
+    paddingBottom: 5
+  },
+  cardActions: {
+    fontFamily: "'Montserrat', sans-serif",
+    color: '#fff'
+  },
+  cardFooter: {
+    marginTop: 20,
+    marginBottom: -20
   }
 }))
 

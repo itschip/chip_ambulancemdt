@@ -21,8 +21,16 @@ export const patientState = {
     key: 'patientCred',
     default: null
   }), 
-  patientTreatments: atom({
-    key: 'patientTreatments',
-    default: null  
+  patientTreatmentModal: atom({
+    key: 'patientTreatmentModal',
+    default: false
+  }),
+  treatModal: atom({
+    key: 'abcd',
+    default: true
+  }),
+  treatDetail: atom({
+    key: 'kos',
+    default: null
   })
 }
