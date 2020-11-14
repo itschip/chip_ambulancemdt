@@ -2,6 +2,7 @@ import { Card, CardActions, CardContent, Chip, Typography, Button } from '@mater
 import React from 'react'
 import { useTreatmentDetail } from '../../../../treatments/hooks/useTreatmentDetail';
 import { useTreatmentModal } from '../../../../treatments/hooks/useTreatmentModal';
+import { usePatientModal } from '../../../hooks/usePatientModal';
 
 import useStyles from './treatment.styles';
 
@@ -10,13 +11,6 @@ export const TreatmentCard = (treatment) => {
   const { setTreatmentDetail } = useTreatmentDetail();
 
   const { setTreatmentModal } = useTreatmentModal();
-
-  const TagType = {
-    Frisk: {background: '#2ed573', color: '#fff'},
-    Kritisk: {background: '#ff4757', color: '#fff'},
-    Behandlet: {background: 'fff', color: '#4f9cdb'}  
-  }
-
 
   const handleOpenTreatment = (treatment) => {
     console.log(treatment)
@@ -27,11 +21,6 @@ export const TreatmentCard = (treatment) => {
   return (
     <div>
       <Card className={classes.root}>
-        <div className={classes.cardChip}>
-          {treatment.tags.map((tag) => (
-            <Chip key={tag} label={tag} size="small" style={TagType[tag]}/>
-          ))}
-        </div>
         <CardContent>
           <Typography variant="h5" className={classes.cardHeader}>
             {treatment.name}

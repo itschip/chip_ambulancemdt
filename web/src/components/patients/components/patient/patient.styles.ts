@@ -1,11 +1,22 @@
 import { makeStyles, Theme } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme: Theme) => ({
+  modalParent: {
+    marginBottom: '5em'
+  },
   modalHeader: {
     display: 'flex',
     alignItems: 'center',
     margin: 20,
     width: '100%'
+  },
+  modalCloseButton: {
+    color: '#fff', 
+    fontWeight: 600, 
+    fontSize: 20, 
+    fontFamily: "'Montserrat', sans-serif",
+    position: 'absolute',
+    right: 0,
   },
   modalTitle: {
     fontFamily: "'Montserrat', sans-serif",
@@ -14,8 +25,8 @@ const useStyles = makeStyles((theme: Theme) => ({
     margin: 30,
   },
   avatar: {
-    height: 200,
-    width: 200
+    height: 300,
+    width: 300
   },
   patientHeaderInfo: {
     borderLeft: '2px solid #fff',
@@ -30,7 +41,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     margin: 30
   },
   overviewContent: {
-    maxHeight: 90
+    maxHeight: 100
   },
   overviewTitle: {
     color: '#fff',

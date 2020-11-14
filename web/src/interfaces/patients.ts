@@ -1,7 +1,17 @@
 export interface IPatients {
   name: string;
-  image: string;
-  age: any;
+  firstname: string;
+  lastname: string;
+  avatar: string;
+  dateofbirth: any;
   bloodtype: string;
-  number: number;
+  phone_number: string;
+}
+
+export interface IPatient {
+  avatar: string;
+  blood: string;
+  phone_number?: string;
+  firstname: string;
+  lastname: string;
 }

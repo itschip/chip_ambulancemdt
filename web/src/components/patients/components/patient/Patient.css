@@ -1,6 +1,15 @@
+.patient-overview {
+  margin-bottom: 10em;
+}
+
 .patient-overview .Mui-focused::after {
   border-bottom: 2px solid #4f9cdb;
 } 
+
+.patient-overview .MuiAvatar-root {
+  height: 200px;
+  width: 200px;
+}
 
 .patient-overview {
   margin-bottom: 19.5em;

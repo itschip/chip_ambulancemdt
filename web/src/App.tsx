@@ -94,7 +94,8 @@ setTimeout(() => {
         data: [
           {
             id: 1,
-            name: "Petter Moen",
+            firstname: "Petter",
+            lastname: "Moen",
             age: 24,
             number: 34034524,
             bloodtype: 'A',
@@ -102,7 +103,8 @@ setTimeout(() => {
           },
           {
             id: 2,
-            name: "Cody Axelson",
+            firstname: "Cody",
+            lastname: "Axelson",
             age: 22,
             number: 39495838,
             bloodtype: 'B',
@@ -110,13 +112,28 @@ setTimeout(() => {
           },
           {
             id: 3,
-            name: "Frode Ortevik",
+            firstname: "Frode",
+            lastname: "Ortevik",
             age: 36,
             bloodtype: 'Ukjent',
             number: 84758392,
             image: 'https://i.imgur.com/cQGpehY.jpg'
           },
         ]
+      }
+    })
+  )
+}, 1000)
+
+setTimeout(() => {
+  window.dispatchEvent(
+    new MessageEvent("message", {
+      data: {
+        app: "AMBULANCEMDT",
+        method: "setCredentials",
+        data: {
+          name: "Hello"
+        }
       }
     })
   )

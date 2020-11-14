@@ -7,14 +7,16 @@ author "chip"
 
 
 client_script {
-  'resources/dist/client/*.client.js'
+'resources/dist/client/*.client.js'
 }
 
 server_script {
-  'resources/dist/server/*.server.js'
+'resources/dist/server/*.server.js'
 }
 
+ui_page 'html/index.html'
+
 files {
-  'resources/html/index.html',
-  'resources/html/*.js'
+  'html/index.html',
+  'html/main.js'
 }

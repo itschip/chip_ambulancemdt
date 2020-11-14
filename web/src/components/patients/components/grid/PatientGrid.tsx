@@ -14,7 +14,7 @@ const PatientGrid = () => {
     <div style={{ marginTop: 30, margin: 20 }}>
       <Grid container spacing={4}>
         {patients
-          .filter((patinet) => patinet.name.includes(filterPatient))
+          .filter((patient) => patient.lastname.includes(filterPatient) || patient.firstname.includes(filterPatient)) 
           .map((patient) => (
             <Grid key={patient.id} item xs={2}>
               <PatientCard key={patient.id} {...patient} />

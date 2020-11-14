@@ -1,13 +1,17 @@
-// eslint-disable-next-line
 export default {
-  async send(event: any, data = {}) {
+  async send(event, data = {}) {
+    // /// #if DEBUG
+    //return new Promise(resolve => setTimeout(resolve, 100));
+    // /// #endif
+
     /* eslint-disable no-unreachable */
     return fetch(`http://or-ambumdt/${event}`, {
       method: "post",
       headers: {
-        "Content-Type": "application/json; charset=UTF-8",
+        "Content-type": "application/json; charset=UTF-8",
       },
       body: JSON.stringify(data),
     });
+    /* eslint-enable no-unreachable  */
   },
 };

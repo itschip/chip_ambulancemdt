@@ -4,6 +4,7 @@ import { Modal } from '../../../ui/Modal';
 import { usePatientCreds } from '../../hooks/usePatientCreds';
 import { usePatientModal } from '../../hooks/usePatientModal';
 import useStyles from './patient.styles';
+import CloseIcon from '@material-ui/icons/Close';
 
 import PatientOverview from './PatientOverview';
 
@@ -21,8 +22,10 @@ const PatientModal = () => {
 
   return (
     <Modal visible={patientModal}>
-      <Button style={{ color: '#fff', fontWeight: 600, fontSize: 20, fontFamily: "'Montserrat', sans-serif", }} onClick={handleClose}>Lukk</Button>
-      <PatientOverview />
+      <div className={classes.modalParent}>
+        <Button className={classes.modalCloseButton} onClick={handleClose}><CloseIcon /></Button>
+        <PatientOverview />
+      </div>
     </Modal>
   )
 }

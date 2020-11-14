@@ -1,5 +1,6 @@
 import { Button, TextField, Avatar as MuiAvatar } from '@material-ui/core'
 import React, { useState } from 'react'
+import Nui from '../../../../nui-events/utils/Nui'
 import { Modal } from '../../../ui/Modal'
 import { useCredsModal } from '../../hooks/useCredsModal'
 import { usePatientCreds } from '../../hooks/usePatientCreds'
@@ -13,7 +14,7 @@ export const CredsModal = () => {
   const { credsModal, setCredsModal } = useCredsModal()
   const { patientCreds } = usePatientCreds();
 
-  const [avatar, setAvatar] = useState(patientCreds ? patientCreds.image : "");
+  const [avatar, setAvatar] = useState(patientCreds ? patientCreds.avatar : "");
   const [blood, setBlood] = useState(patientCreds ? patientCreds.bloodtype : "")
 
   const handleClose = () => {
@@ -22,6 +23,12 @@ export const CredsModal = () => {
 
   const handleSave = () => {
     setCredsModal(false)
+    Nui.send('ambu:updatePatientCredentials', {
+      firstname: patientCreds?.firstname,
+      lastname: patientCreds?.lastname,
+      avatar,
+      blood
+    })
   }
 
   return (

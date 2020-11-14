@@ -2,12 +2,12 @@ import React from 'react'
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import InputBase from '@material-ui/core/InputBase';
 import { createStyles, fade, Theme, makeStyles } from '@material-ui/core/styles';
-import SearchIcon from '@material-ui/icons/Search';
 //import Logo from '../../logo.png'
 import { Button } from '@material-ui/core';
 import { NavButton } from './UIButton'
+import { useCredentials } from '../../core/hooks/useCredentials';
+import Nui from '../../nui-events/utils/Nui';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -78,12 +78,22 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const Header = () => {
   const classes = useStyles();
+
+  const { credentials } = useCredentials()
+
+  const closeApp = () => {
+    Nui.send('ambu:cad:close', {})
+  }
+
   return (
     <div className={classes.root}>
       <AppBar position="static" variant="outlined" className={classes.appBar}>
         <Toolbar>
           <Typography className={classes.title} variant="h6" noWrap>
             {/*<img alt="logo" src={Logo} width={300} style={{ marginTop: 10 }} />*/}
+          </Typography>
+          <Typography className={classes.title} variant="h6" noWrap>
+            Velkommen, {credentials?.name}
           </Typography>
           <NavButton to="/" label="Oversikt" className={classes.navLink} />
           <NavButton to="/patients" label="Pasienter" className={classes.navLink} /> 
@@ -93,19 +103,9 @@ const Header = () => {
           <Button className={classes.navLink}>
             Psykolog
           </Button>
-          <div className={classes.search}>
-            <div className={classes.searchIcon}>
-              <SearchIcon />
-            </div>
-            <InputBase
-              placeholder="Search…"
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput,
-              }}
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </div>
+          <Button onClick={closeApp} variant="contained">
+            Lukk
+          </Button>
         </Toolbar>
       </AppBar>
     </div>

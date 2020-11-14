@@ -4,14 +4,20 @@ import { Card, CardContent, Typography, Button, CardActions } from '@material-ui
 import useStyles from './card.styles';
 import { usePatientModal } from '../../hooks/usePatientModal';
 import { usePatientCreds } from '../../hooks/usePatientCreds';
+import Nui from '../../../../nui-events/utils/Nui';
 
 const PatientCard = (patient) => {
   const { setPatientModal } = usePatientModal();
-  const { patientCreds, setPatientCreds } = usePatientCreds();
+  const { setPatientCreds } = usePatientCreds();
 
   const showPatientModal = (patient) => {
     setPatientModal(true)
     setPatientCreds(patient);
+    const patientName = patient.firstname + " " +  patient.lastname
+    console.log(patientName)
+    Nui.send('ambu:fetchScopedTreatments', {
+      patientName
+    })
   }
 
   const classes = useStyles();
@@ -20,10 +26,10 @@ const PatientCard = (patient) => {
     <Card className={classes.root} variant="elevation" >
       <CardContent>
         <Typography className={classes.cardTypo} style={{ fontSize: 20, fontWeight: 600 }}>
-          {patient.name}
+          {patient.firstname} {patient.lastname}
         </Typography>
         <Typography className={classes.cardTypo} style={{ fontWeight: 500 }}>
-          Alder: {patient.age}
+          Alder: {patient.dateofbirth}
         </Typography>
         <Typography className={classes.cardTypo} style={{ fontWeight: 500 }}>
           Blodtype: {patient.bloodtype}

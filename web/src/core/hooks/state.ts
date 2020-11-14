@@ -4,5 +4,9 @@ export const coreState = {
   visibility: atom({
     key: 'coreStateHidden',
     default: true
+  }),
+  credentials: atom({
+    key: 'credentialsSource',
+    default: null
   })
 }

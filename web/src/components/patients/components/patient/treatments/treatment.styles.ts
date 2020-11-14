@@ -24,7 +24,10 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   cardActions: {
     fontFamily: "'Montserrat', sans-serif",
-    color: '#fff'
+    fontWeight: 600,
+    margin: 5,
+    color: '#4f9cdb',
+    background: '#fff'
   },
   cardFooter: {
     marginTop: 20,
