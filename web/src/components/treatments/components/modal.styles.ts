@@ -45,6 +45,14 @@ const useStyles = makeStyles((theme: Theme) => ({
     fontWeight: 600,
     marginTop: 20,
     margin: 4
+  },
+  modalActionDelete: {
+    background: '#ef5350',
+    color: '#fff',
+    fontFamily: "'Montserrat', sans-serif",
+    fontWeight: 600,
+    marginTop: 20,
+    margin: 4
   }
 }))
 

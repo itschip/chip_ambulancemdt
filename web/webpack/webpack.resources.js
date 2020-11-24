@@ -1,6 +1,5 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const ResourceManifestPlugin = require("./webpack.fxmanifest.plugin");
 
 module.exports = require("./webpack.common")({
   mode: "production",
@@ -25,7 +24,6 @@ module.exports = require("./webpack.common")({
       },
       inject: true,
     }),
-    new ResourceManifestPlugin(),
   ],
 
   performance: {

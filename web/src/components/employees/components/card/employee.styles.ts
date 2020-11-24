@@ -1,12 +1,12 @@
 import { makeStyles, Theme } from '@material-ui/core/styles';
 
-// background: '#4f9cdb'
-
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
-    //background: fade(theme.palette.common.white, 0.15),
     background: '#4f9cdb',
     color: '#fff',
+    width: 250,
+    height: 150,
+    margin: 40, 
   },
   cardTypo: {
     fontFamily: "'Montserrat', sans-serif",

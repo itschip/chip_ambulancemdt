@@ -1,28 +1,23 @@
-import { Card, CardActions, CardContent, Typography, Button, Chip } from '@material-ui/core'
-import React, { useState } from 'react'
+import { Card, CardActions, CardContent, Typography, Button } from '@material-ui/core'
+import React from 'react'
+import { useTreatmentDetail } from '../../../treatments/hooks/useTreatmentDetail';
+import { useTreatmentModal } from '../../../treatments/hooks/useTreatmentModal';
 
 import useStyles from './otreatments.styles';
 
-// kritisk: background: '#ff4757', color: '#fff'
-// frisk : 
-
 const OTreatmentCard = (treatment) => {
   const classes = useStyles();
+  const { setTreatmentDetail } = useTreatmentDetail();
+  const { setTreatmentModal } = useTreatmentModal();
 
-  const TagType = {
-    Frisk: {background: '#2ed573', color: '#fff'},
-    Kritisk: {background: '#ff4757', color: '#fff'},
-    Behandlet: {background: 'fff', color: '#4f9cdb'}  
+  const openOverviewTreatmentModal = (treatment) => {
+    setTreatmentModal(true)
+    setTreatmentDetail(treatment)
   }
 
 
   return (
     <Card className={classes.root}>
-      <div className={classes.cardChip}>
-        {treatment.tags.map((tag) => (
-          <Chip label={tag} size="small" style={TagType[tag]}/>
-        ))}
-      </div>
       <CardContent>
         <Typography variant="h5" className={classes.cardHeader}>
           {treatment.name}
@@ -45,7 +40,7 @@ const OTreatmentCard = (treatment) => {
         </div>
       </CardContent>
       <CardActions>
-        <Button className={classes.cardActions}>
+        <Button className={classes.cardActions} onClick={() => openOverviewTreatmentModal(treatment)}>
           Se mer
         </Button>
       </CardActions>

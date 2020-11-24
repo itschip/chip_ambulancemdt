@@ -4,7 +4,7 @@ import { Button } from '@material-ui/core';
 
 export const NavButton = (props) => {
   return (
-    <Button {...props}>
+    <Button onClick={props.onClick} {...props}>
       <NavLink to={props.to}>{props.label}</NavLink>
     </Button>
   )

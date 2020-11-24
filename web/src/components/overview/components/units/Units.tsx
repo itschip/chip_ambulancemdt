@@ -33,7 +33,7 @@ const Units = () => {
         </TableHead>
         <TableBody>
           {units.map((unit) => (
-            <TableRow>
+            <TableRow key={unit.id}>
               <TableCell component="th" scope="row">
                 <Chip label={`${unit.name}`} style={UnitStatus[unit.status]}/>
               </TableCell>

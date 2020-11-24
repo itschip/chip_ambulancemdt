@@ -11,6 +11,7 @@ import { usePatientCreds } from "../../patients/hooks/usePatientCreds";
 import Nui from "../../../nui-events/utils/Nui";
 import CloseIcon from '@material-ui/icons/Close';
 import { useCredentials } from "../../../core/hooks/useCredentials";
+import { useRole } from "../../../core/hooks/useRole";
 
 
 const TreatmentModal = ({ overview }) => {
@@ -18,12 +19,13 @@ const TreatmentModal = ({ overview }) => {
   const { treatmentDetail, setTreatmentDetail } = useTreatmentDetail();
   const { patientCreds } = usePatientCreds();
   const { credentials } = useCredentials();
+  const isBoss = useRole();
 
   const patientName = patientCreds?.firstname + " " + patientCreds?.lastname;
 
   const [name, setName] = useState<string | null>(treatmentDetail ? treatmentDetail.name : patientName)
   const [note, setNote] = useState<string | null>(null)
-  const [doctor, setDoctor] = useState<string | null>(treatmentDetail ? treatmentDetail.doctor : credentials.name)
+  const [doctor, setDoctor] = useState<string | null>(treatmentDetail ? treatmentDetail.doctor : credentials?.name)
   const [date, setDate] = useState<string | null>(treatmentDetail ? treatmentDetail.date : dayjs().format("DD/MM/YYYY"))
 
   useEffect(() => {
@@ -67,11 +69,19 @@ const TreatmentModal = ({ overview }) => {
     setTreatmentDetail(null);
   }
 
+  const handleDeleteTreatment = () => {
+    Nui.send('ambu:deleteTreatment', {
+      id: treatmentDetail?.id,
+      name
+    })
+  }
+
   const ModalActions = () => {
     return (
       <div>
         {!treatmentDetail ? <Button onClick={handleNewTreatment} className={classes.modalAction}>Lagre</Button> : null}
         {treatmentDetail ? <Button onClick={handleUpdateTreatment} className={classes.modalAction}>Oppdater</Button> : null}
+        {isBoss === 'boss' ? <Button onClick={handleDeleteTreatment} className={classes.modalActionDelete}>Slett</Button> : null}
       </div>
     )
   }
@@ -82,7 +92,7 @@ const TreatmentModal = ({ overview }) => {
     <div>
       <Modal visible={treatmentModal}>
       <Button  className={classes.modalCloseButton} onClick={handleClose}><CloseIcon /></Button>
-        <Typography variant="h4" className={classes.modalHeader}>Ny Behandling</Typography>
+        <Typography variant="h4" className={classes.modalHeader}>{treatmentDetail ? 'Behandling' : 'Ny Behandling'}</Typography>
         <div style={{ marginBottom: 100, marginTop: 50 }}>
           <Grid container spacing={4} style={{ display: 'flex', justifyContent: 'center' }}>
             <Grid item xs={4}>

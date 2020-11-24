@@ -8,6 +8,8 @@ import { Button } from '@material-ui/core';
 import { NavButton } from './UIButton'
 import { useCredentials } from '../../core/hooks/useCredentials';
 import Nui from '../../nui-events/utils/Nui';
+import { useRole } from '../../core/hooks/useRole';
+
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -78,11 +80,16 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const Header = () => {
   const classes = useStyles();
+  const role = useRole();
 
   const { credentials } = useCredentials()
 
   const closeApp = () => {
     Nui.send('ambu:cad:close', {})
+  }
+
+  const handleEmployees = () => {
+    Nui.send('ambu:fetchAmbulanceEmployees', {})
   }
 
   return (
@@ -97,12 +104,9 @@ const Header = () => {
           </Typography>
           <NavButton to="/" label="Oversikt" className={classes.navLink} />
           <NavButton to="/patients" label="Pasienter" className={classes.navLink} /> 
-          <Button className={classes.navLink}>
-            Behandlinger
-          </Button>
-          <Button className={classes.navLink}>
-            Psykolog
-          </Button>
+          {role === "boss" ? 
+            <NavButton onClick={handleEmployees} to="/employees" label="Ansatte" className={classes.navLink} /> 
+           : null}
           <Button onClick={closeApp} variant="contained">
             Lukk
           </Button>

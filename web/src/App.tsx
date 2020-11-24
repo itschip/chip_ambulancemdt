@@ -8,12 +8,14 @@ import { useCadService } from './core/hooks/useCadService';
 import { useNuiService } from './nui-events/hooks/useNuiService';
 import { useOverviewService } from './components/overview/hooks/useOverviewService';
 
-import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom'
 
 // show and hide cad
 import { useVisibility } from './core/hooks/useVisibility';
 import PatientContainer from './components/patients/PatientContainer';
 import { usePatientService } from './components/patients/hooks/usePatientService';
+import { EmployeeContainer } from './components/employees/EmployeeContainer';
+import { useEmployeeService } from './components/employees/hooks/useEmployeeService';
 
 
 setTimeout(() => {
@@ -149,17 +151,38 @@ setTimeout(() => {
           {
             id: 1,
             name: "LEGE 210 | Petter Moen",
-            status: "Opptatt"
           },
           {
             id: 2,
             name: "AMBU 720 | Cody Axelson",
-            status: "Ledig"
           },
           {
             id: 3,
             name: "02 HELSE | Frode Ortevik",
-            status: "Pause"
+          }
+        ]
+      }
+    })
+  )
+}, 1000)
+
+setTimeout(() => {
+  window.dispatchEvent(
+    new MessageEvent("message", {
+      data: {
+        app: "AMBULANCECAD",
+        method: "setEmployees",
+        data: [
+          {
+            id: 1,
+            firstname: "Petter",
+            lastname: "Moen",
+            name: "LEGE 210 | Petter Moen",
+            treatments: 3,
+            licenses: ["160", "Heli", "Førerkort Klasse B"],
+            role: "boss",
+            callsign: "lege 210",
+            job_grade: 'Overlege',
           }
         ]
       }
@@ -174,21 +197,26 @@ function App() {
   useTreatmentService();
   useOverviewService();
   usePatientService();
+  useEmployeeService();
+  console.log(!"wtf")
+
   return (
     <div style={ visibility ? { visibility: 'visible' } : { visibility: 'hidden' }}>
-    <Wrapper>
-      <ContentWrapper>
-        <Router>
-          <>
-            <Header />
-            <Switch>
-              <Route exact path="/" component={OverviewContainer} />
-              <Route path="/patients" component={PatientContainer} />
-            </Switch>
-          </>
-        </Router>
-      </ContentWrapper>
-    </Wrapper>
+    <Router>
+      <Wrapper>
+        <ContentWrapper>
+            <>
+              <Header />
+              <Switch>
+                <Route exact path={"/"} component={OverviewContainer} />
+                <Route path="/patients" component={PatientContainer}  />
+                <Route path="/employees" component={EmployeeContainer} />
+              </Switch>
+              <Redirect to={"/"} />
+            </>
+        </ContentWrapper>
+      </Wrapper>
+    </Router>
     </div>
   );
 }

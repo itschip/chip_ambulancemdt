@@ -8,5 +8,9 @@ export const coreState = {
   credentials: atom({
     key: 'credentialsSource',
     default: null
+  }),
+  role: atom({
+    key: 'ambuCadRole',
+    default: "boss"
   })
 }
