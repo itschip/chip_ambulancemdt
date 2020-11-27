@@ -3,11 +3,8 @@ export interface IEmployee {
   firstname?: string;
   lastname?: string;
   name?: string;
-  treatments: number;
-  licenses: string[];
-  role: string;
-  callsign: string;
-  job_grade: string;
+  licenses: any;
+  job_grade: any;
 
   map?: any;
 }

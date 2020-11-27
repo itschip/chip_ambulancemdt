@@ -15,7 +15,8 @@ export const CredsModal = () => {
   const { patientCreds } = usePatientCreds();
 
   const [avatar, setAvatar] = useState(patientCreds ? patientCreds.avatar : "");
-  const [blood, setBlood] = useState(patientCreds ? patientCreds.bloodtype : "")
+  const [blood, setBlood] = useState(patientCreds ? patientCreds.bloodtype : "");
+  const [doctor, setDoctor] = useState(patientCreds ? patientCreds.doctor : "");
 
   const handleClose = () => {
     setCredsModal(false) 
@@ -27,7 +28,8 @@ export const CredsModal = () => {
       firstname: patientCreds?.firstname,
       lastname: patientCreds?.lastname,
       avatar,
-      blood
+      blood,
+      doctor
     })
   }
 
@@ -51,6 +53,13 @@ export const CredsModal = () => {
             value={blood}
             onChange={e => setBlood(e.target.value)}
 
+          />
+          <TextField
+              placeholder="Fastlege"
+              className={classes.inputCreds}
+              inputProps={{ className: classes.credsInputBlood }}
+              value={doctor}
+              onChange={e => setDoctor(e.target.value)}
           />
           <Button variant="contained" onClick={handleSave} className={classes.saveButton}>
             Lagre

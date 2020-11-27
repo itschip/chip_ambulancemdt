@@ -1,9 +1,16 @@
 import events from '../utils/events';
 import { Delay } from '../utils/fivem';
+import { ESX } from './client';
+
+
+on('esx:setJob', (job: any) => {
+  ESX.GetPlayerData().job = job
+})
 
 RegisterCommand('cad:show', (source: any, args: any, raw: any) => {
   cadOpenAnim()
   newCadProp()
+  checkRole()
   SendNuiMessage(
     JSON.stringify({
       app: "AMBULANCEMDT",
@@ -11,19 +18,20 @@ RegisterCommand('cad:show', (source: any, args: any, raw: any) => {
       data: true
     })
   )
+
   SetNuiFocus(true, true);
   emitNet(events.PATIENTS_FETCH_ALL_PATIENTS);
   emitNet(events.FETCH_CREDENTIALS)
+  emitNet(events.FETCH_AMBULANCEPLAYERS);
 }, false);
 
 
 let prop = 0;
 let propCreated = false;
-let cadModel = "prop_cs_tablet"; // Refered to in newphoneProp function. Requires custom phone being streamed.
+let cadModel = "prop_cs_tablet"; 
 
 const newCadProp = async () => {
-  //Function for creating the phone prop
-  deleteCad(); //deletes the already existing prop before creating another.
+  deleteCad(); 
   if (!propCreated) {
     RequestModel(cadModel);
     while (!HasModelLoaded(cadModel)) {
@@ -58,7 +66,7 @@ const newCadProp = async () => {
       true,
       1.0,
       true
-    ); //-- Attaches the phone to the player.
+    );
     propCreated = true;
   } else if (propCreated) {
     console.log("prop already created");
@@ -134,3 +142,49 @@ on(`__cfx_nui:ambu:cad:close`, () => {
   cadCloseAnim()
   SetNuiFocus(false, false);
 })
+
+function checkRole() {
+  let jobRole = ESX.GetPlayerData().job.grade_name; 
+  SendNuiMessage(
+    JSON.stringify({
+      app: "AMBULANCEMDT",
+      method: "setRole",
+      data: jobRole
+    })
+  )
+}
+
+onNet(events.SEND_AMBULANCEPLAYERS, (ambulancePlayers: any[]) => {
+  SendNuiMessage(
+    JSON.stringify({
+      app: "AMBULANCE_UNITS",
+      method: "setUnits",
+      data: ambulancePlayers
+    })
+  )
+})
+
+RegisterNuiCallbackType(events.EMPLOYEES_FETCH_EMPLOYEES);
+on(`__cfx_nui:${events.EMPLOYEES_FETCH_EMPLOYEES}`, () => {
+  emitNet(events.EMPLOYEES_FETCH_EMPLOYEES)
+})
+
+RegisterNuiCallbackType(events.TREATMENTS_FETCH_EMPLOYEE_TREATMENTS);
+on(`__cfx_nui:${events.TREATMENTS_FETCH_EMPLOYEE_TREATMENTS}`, (data: any) => {
+  emitNet(events.TREATMENTS_FETCH_EMPLOYEE_TREATMENTS, data.doctor)
+})
+
+onNet(events.EMPLOYEES_SEND_EMPLOYEES, (employees: any) => {
+  SendNuiMessage(
+    JSON.stringify({
+      app: 'AMBULANCECAD',
+      method: 'setEmployees',
+      data: employees
+    })
+  )
+})
+
+
+RegisterCommand('getambulance', (source: any, args: any, raw: any) => {
+  emitNet(events.EMPLOYEES_FETCH_EMPLOYEES)
+}, false)

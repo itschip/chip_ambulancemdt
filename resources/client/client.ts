@@ -1,13 +1,13 @@
-import { ESXClient } from 'fivem-esx-js/client/esx_client'
+import { Client } from 'esx.js'
 
 import './cl_main';
 import './cl_patients'
 import './cl_treatments';
 
-export let ESX: ESXClient = null;
+export let ESX: Client = null;
 
 setTick(() => {
   while (ESX === null) {
-    emit("esx:getSharedObject", (obj: ESXClient) => (ESX = obj));
+    emit("esx:getSharedObject", (obj: Client) => (ESX = obj));
   }
 });

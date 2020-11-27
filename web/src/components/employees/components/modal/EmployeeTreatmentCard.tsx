@@ -1,17 +1,18 @@
 import { Card, CardActions, CardContent, Typography, Button } from '@material-ui/core'
 import React from 'react'
+import { useTreatmentDetail } from '../../../treatments/hooks/useTreatmentDetail';
+import { useTreatmentModal } from '../../../treatments/hooks/useTreatmentModal';
 
 import useStyles from './treatment.styles';
 
 export const EmployeeTreatmentCard = (treatment) => {
   const classes = useStyles();
-  //const { setTreatmentDetail } = useTreatmentDetail();
-
-  //const { setTreatmentModal } = useTreatmentModal();
+  const { setTreatmentDetail } = useTreatmentDetail();
+  const { setTreatmentModal } = useTreatmentModal();
 
   const handleOpenTreatment = (treatment) => {
-    //setTreatmentModal(true)
-    //setTreatmentDetail(treatment)
+    setTreatmentModal(true)
+    setTreatmentDetail(treatment)
   }
   
   return (

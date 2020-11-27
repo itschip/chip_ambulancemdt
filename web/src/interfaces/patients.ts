@@ -6,6 +6,7 @@ export interface IPatients {
   dateofbirth: any;
   bloodtype: string;
   phone_number: string;
+  doctor: string;
 }
 
 export interface IPatient {
@@ -14,4 +15,5 @@ export interface IPatient {
   phone_number?: string;
   firstname: string;
   lastname: string;
+  doctor: string;
 }

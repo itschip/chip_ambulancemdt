@@ -58,6 +58,10 @@ const PatientOverview = () => {
           {patientCreds.bloodtype}
         </Typography>
         <Typography className={classes.patientHeaderInfo}>
+          <span style={{ fontWeight: 600 }}>Fastlege:</span>{" "}
+          {patientCreds.doctor}
+        </Typography>
+        <Typography className={classes.patientHeaderInfo}>
           <span style={{ fontWeight: 600 }}>Telefon:</span>{" "}
           {patientCreds.phone_number}
         </Typography>

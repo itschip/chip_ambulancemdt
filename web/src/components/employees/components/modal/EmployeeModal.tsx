@@ -6,6 +6,7 @@ import { useModal } from '../../hooks/useModal'
 import useStyles from './modal.styles';
 import ModalCards from './ModalCards';
 import '../Employee.css';
+import TreatmentModal from '../../../treatments/components/TreatmentModal';
 
 const EmployeeModal = () => {
   const { modal, setModal } = useModal(); 
@@ -22,6 +23,7 @@ const EmployeeModal = () => {
   return (
     <div>
       <Modal visible={modal}>
+        <TreatmentModal overview={false} />
         <Button onClick={handleClose}>Lukk</Button>
         <div> 
           <div className={classes.headerContainer}>
@@ -29,9 +31,6 @@ const EmployeeModal = () => {
             <Divider orientation="vertical" flexItem variant="middle" />
             <h2 className={classes.jobGrade}><strong>Stilling:  </strong>{detail.job_grade}</h2>
             <Divider orientation="vertical" flexItem variant="middle" />
-            {detail.licenses.map((license) => (
-              <Chip className={classes.licenseChip} label={license}/>
-            ))}
           </div>
           <ModalCards/>
         </div>
