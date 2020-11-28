@@ -13,6 +13,7 @@ const OTreatmentCard = (treatment) => {
   const openOverviewTreatmentModal = (treatment) => {
     setTreatmentModal(true)
     setTreatmentDetail(treatment)
+    console.log(treatment.name)
   }
 
 

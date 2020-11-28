@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Modal } from "../../ui/Modal";
 import dayjs from 'dayjs'
-import { Button, Grid, TextField, Typography } from "@material-ui/core";
+import { Button, Grid, TextField, Typography, Tooltip } from "@material-ui/core";
 import { useTreatmentModal } from "../hooks/useTreatmentModal";
 import { useTreatmentDetail } from '../hooks/useTreatmentDetail'
 import useStyles from "./modal.styles";
@@ -23,13 +23,15 @@ const TreatmentModal = ({ overview }) => {
 
   const patientName = patientCreds?.firstname + " " + patientCreds?.lastname;
 
-  const [name, setName] = useState<string | null>(treatmentDetail ? treatmentDetail.name : patientName)
+  const [name, setName] = useState<string | null>(null)
   const [note, setNote] = useState<string | null>(null)
   const [doctor, setDoctor] = useState<string | null>(treatmentDetail ? treatmentDetail.doctor : credentials?.name)
   const [date, setDate] = useState<string | null>(treatmentDetail ? treatmentDetail.date : dayjs().format("DD/MM/YYYY"))
 
+  // FIXME:
   useEffect(() => {
     setNote(treatmentDetail ? treatmentDetail.note : "");
+    setName(treatmentDetail ? treatmentDetail?.name : patientName)
   }, [treatmentDetail])
   
   const classes = useStyles();
@@ -37,13 +39,14 @@ const TreatmentModal = ({ overview }) => {
   const handleClose = () => {
     setTreatmentModal(false);
     setTreatmentDetail(null);
+    console.log(patientName)
   };
-  
 
   // nui functions
 
   // sending new treatment
   const handleNewTreatment = () => {
+    console.log(name)
     Nui.send('ambu:newTreatmeant', {
       name,
       note,
@@ -52,6 +55,7 @@ const TreatmentModal = ({ overview }) => {
     })
     setTreatmentModal(false);
     setTreatmentDetail(null);
+
   }
 
   // launch server with +set sv_enforceGameBuild 2060
@@ -75,7 +79,6 @@ const TreatmentModal = ({ overview }) => {
       name
     })
   }
-
   const ModalActions = () => {
     return (
       <div>

@@ -29,7 +29,7 @@ const PatientCard = (patient) => {
           {patient.firstname} {patient.lastname}
         </Typography>
         <Typography className={classes.cardTypo} style={{ fontWeight: 500 }}>
-          Alder: {patient.dateofbirth}
+          DOB: {patient.dateofbirth}
         </Typography>
         <Typography className={classes.cardTypo} style={{ fontWeight: 500 }}>
           Blodtype: {patient.bloodtype}

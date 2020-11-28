@@ -27,19 +27,19 @@ setTimeout(() => {
         data: [
           {
             id: 1,
+            firstname: "Cody",
             name: "Cody Axelson",
             date: "07/11/20",
             note: "Brukket arm. Fått med smertestillende hjem.",
             doctor: "Frode Ortevik",
-            tags: ["Kritisk"]
           },
           {
             id: 2,
+
             name: "Petter Moen",
             date: "07/11/20",
             note: "Brukket arm. Fått med smertestillende hjem.",
             doctor: "Frode Ortevik",
-            tags: ["Frisk", "Behandlet"]
           },
           {
             id: 3,
@@ -47,7 +47,6 @@ setTimeout(() => {
             date: "07/11/20",
             note: "Brukket arm. Fått med smertestillende hjem.",
             doctor: "Frode Ortevik",
-            tags: ["en annen tag"]
           },
           {
             id: 4,
@@ -55,7 +54,6 @@ setTimeout(() => {
             date: "07/11/20",
             note: "Brukke ben. Fått med smertestillende hjem.",
             doctor: "Cody Axelson",
-            tags: ["en annen tag"]
           },
           {
             id: 5,
@@ -63,7 +61,6 @@ setTimeout(() => {
             date: "07/11/20",
             note: "Brukket arm. Fått med smertestillende hjem. Dette er helt kaos, liksom wallah.",
             doctor: "Frode Ortevik",
-            tags: ["Frisk"]
           },
           {
             id: 6,
@@ -71,7 +68,6 @@ setTimeout(() => {
             date: "07/11/20",
             note: "Brukket arm. Fått med smertestillende hjem. Dette er helt kaos, liksom wallah.",
             doctor: "Frode Ortevik",
-            tags: ["Frisk"]
           },
           {
             id: 7,
@@ -79,7 +75,6 @@ setTimeout(() => {
             date: "07/11/20",
             note: "Brukket arm. Fått med smertestillende hjem. Dette er helt kaos, liksom wallah.",
             doctor: "Frode Ortevik",
-            tags: ["Frisk"]
           },
         ]
       }

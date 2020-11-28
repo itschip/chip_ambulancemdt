@@ -2,7 +2,7 @@ import { makeStyles, Theme } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
-    background: '#4f9cdb',
+    background: '#73a3c9',
     color: '#fff',
     width: 250,
     height: 150,

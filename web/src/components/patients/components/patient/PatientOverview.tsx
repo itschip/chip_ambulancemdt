@@ -3,6 +3,7 @@ import {
   Typography,
   Avatar as MuiAvatar,
   Grid,
+  Tooltip
 } from "@material-ui/core";
 import React from "react";
 import { useTreatments } from "../../../treatments/hooks/useTreatments";
@@ -17,7 +18,8 @@ import { TreatmentCard } from "./treatments/TreatmentCard"
 import TreatmentModal from "../../../treatments/components/TreatmentModal";
 import { useTreatmentModal } from "../../../treatments/hooks/useTreatmentModal";
 import AddCircleIcon from '@material-ui/icons/AddCircle';
-import { useTreatmentDetail } from "../../../treatments/hooks/useTreatmentDetail";
+//import { useTreatmentDetail } from "../../../treatments/hooks/useTreatmentDetail";
+import { useFilteredPatients } from "../../hooks/useFilteredPatients";
 
 
 const PatientOverview = () => {
@@ -25,7 +27,8 @@ const PatientOverview = () => {
   const { patientCreds } = usePatientCreds();
   const { credsModal, setCredsModal } = useCredsModal();
   const { treatmentModal, setTreatmentModal } = useTreatmentModal();
-  const { setTreatmentDetail } = useTreatmentDetail()
+  //const { setTreatmentDetail } = useTreatmentDetail()
+  const { filterPatient } = useFilteredPatients();
 
   const classes = useStyles();
 
@@ -51,7 +54,7 @@ const PatientOverview = () => {
           {patientCreds?.firstname} {patientCreds.lastname}
         </Typography>
         <Typography className={classes.patientHeaderInfo}>
-          <span style={{ fontWeight: 600 }}>Alder:</span> {patientCreds.dateofbirth}
+          <span style={{ fontWeight: 600 }}>DOB:</span> {patientCreds.dateofbirth}
         </Typography>
         <Typography className={classes.patientHeaderInfo}>
           <span style={{ fontWeight: 600 }}>Blodtype:</span>{" "}
@@ -65,23 +68,27 @@ const PatientOverview = () => {
           <span style={{ fontWeight: 600 }}>Telefon:</span>{" "}
           {patientCreds.phone_number}
         </Typography>
-        <Button
-          variant="contained"
-          onClick={openCredsModal}
-          className={classes.editPatientBtn}
-        >
-          <EditIcon />
-        </Button>
+        <Tooltip title="Endre informasjon">
+          <Button
+            variant="contained"
+            onClick={openCredsModal}
+            className={classes.editPatientBtn}
+          >
+            <EditIcon />
+          </Button>
+        </Tooltip>
       </div>
       <div className={classes.overviewContent}>
         <div style={{ display: 'flex' }}>
-          <Typography className={classes.overviewTitle} variant="h5">Behandlinger</Typography>'
-          <Button onClick={openEmptyTreatment} style={{ color: '#fff' }}><AddCircleIcon /></Button>
+          <Typography className={classes.overviewTitle} variant="h5">Behandlinger</Typography>
+          <Tooltip title="Opprett ny behandling">
+            <Button onClick={openEmptyTreatment} style={{ color: '#fff' }}><AddCircleIcon /></Button>
+          </Tooltip>
         </div>
         <div className={classes.overviewCards}>
           <Grid container spacing={2}>
             {treatments
-              .filter((treatment) => treatment.name.includes(patientCreds.firstname))
+              .filter((treatment) => treatment.name.includes(filterPatient))
               .map((treatment) => (
                 <Grid key={treatment.id} item xs={3}>
                   <TreatmentCard key={treatment.id} {...treatment}/>

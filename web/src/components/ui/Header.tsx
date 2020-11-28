@@ -3,7 +3,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { createStyles, fade, Theme, makeStyles } from '@material-ui/core/styles';
-//import Logo from '../../logo.png'
+import Logo from '../../logo.png'
 import { Button } from '@material-ui/core';
 import { NavButton } from './UIButton'
 import { useCredentials } from '../../core/hooks/useCredentials';
@@ -69,7 +69,7 @@ const useStyles = makeStyles((theme: Theme) =>
       },
     },
     appBar: {
-      background: '#4f9cdb'
+      background: '#73a3c9'
     },
     navLink: {
       color: '#fff',
@@ -97,7 +97,7 @@ const Header = () => {
       <AppBar position="static" variant="outlined" className={classes.appBar}>
         <Toolbar>
           <Typography className={classes.title} variant="h6" noWrap>
-            {/*<img alt="logo" src={Logo} width={300} style={{ marginTop: 10 }} />*/}
+            <img alt="logo" src={Logo} width={300} style={{ marginTop: 10, padding: 10 }} />
           </Typography>
           <Typography className={classes.title} variant="h6" noWrap>
             Velkommen, {credentials?.name}

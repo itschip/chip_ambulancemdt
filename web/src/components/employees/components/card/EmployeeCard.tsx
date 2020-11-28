@@ -25,7 +25,7 @@ const EmployeeCard = (employee) => {
   }
 
   return (
-    <div className="employee-card">
+    <div className="employee-card" key={employee.id}>
       <Card className={classes.root} variant="elevation">
         <CardContent>
           <Typography

@@ -5,7 +5,7 @@ import { makeStyles, Theme } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
     //background: fade(theme.palette.common.white, 0.15),
-    background: '#4f9cdb',
+    background: '#73a3c9',
     color: '#fff',
   },
   cardTypo: {
@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   cardAction: {
     fontFamily: "'Montserrat', sans-serif",
-    color: '#4f9cdb',
+    color: '#73a3c9',
     background: '#fff',
     fontWeight: 600
   }

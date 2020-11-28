@@ -1,4 +1,4 @@
-import { Button, Chip, Divider } from '@material-ui/core';
+import { Button, Divider } from '@material-ui/core';
 import React from 'react'
 import { Modal } from '../../../ui/Modal'
 import { useEmployeeDetail } from '../../hooks/useEmployeeDetail';

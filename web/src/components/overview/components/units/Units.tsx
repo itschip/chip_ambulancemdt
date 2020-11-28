@@ -27,8 +27,7 @@ const Units = () => {
       <Table className={classes.table}>
         <TableHead>
           <TableRow>
-            <TableCell className={classes.tableHeader} style={{ fontWeight: 800, fontSize: 20 }}>Enheter</TableCell>
-            <TableCell className={classes.tableHeader} style={{ fontWeight: 800 }}>Status</TableCell>
+            <TableCell className={classes.tableHeader} style={{ fontWeight: 800, fontSize: 20, color: '#73a3c9' }}>Enheter</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -36,9 +35,6 @@ const Units = () => {
             <TableRow key={unit.id}>
               <TableCell component="th" scope="row">
                 <Chip label={`${unit.name}`} style={UnitStatus[unit.status]}/>
-              </TableCell>
-              <TableCell className={classes.tableHeader} style={{ fontWeight: 700 }}>
-                {unit.status}
               </TableCell>
             </TableRow>
           ))}
