@@ -18,7 +18,7 @@ on(`__cfx_nui:${events.TREATMENTS_UPDATE_TREATMENTS}`, (data: any) => {
 
 RegisterNuiCallbackType(events.TREATMENTS_DELETE_TREATMENT);
 on(`__cfx_nui:${events.TREATMENTS_DELETE_TREATMENT}`, (data: any) => {
-  emit(events.TREATMENTS_DELETE_TREATMENT, data)
+  emitNet(events.TREATMENTS_DELETE_TREATMENT, data)
 })
 
 onNet(events.TREATMENTS_ADD_TREATMENT_SUCCESS, (treatment: any) => {

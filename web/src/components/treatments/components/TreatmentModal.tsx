@@ -55,7 +55,7 @@ const TreatmentModal = ({ overview }) => {
     })
     setTreatmentModal(false);
     setTreatmentDetail(null);
-
+    setNote("");
   }
 
   // launch server with +set sv_enforceGameBuild 2060
@@ -78,6 +78,8 @@ const TreatmentModal = ({ overview }) => {
       id: treatmentDetail?.id,
       name
     })
+    setTreatmentModal(false);
+    setTreatmentDetail(null);
   }
   const ModalActions = () => {
     return (

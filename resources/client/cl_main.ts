@@ -104,7 +104,6 @@ async function cadOpenAnim() {
 function cadCloseAnim() {
   deleteCad();
   ClearPedTasks(PlayerPedId())
-
 }
 
 

@@ -11,6 +11,11 @@ const useStyles = makeStyles((theme: Theme) => ({
     bottom: 0,
     zIndex: 5,
   },
+  modalCloseButton: {
+    position: 'absolute',
+    right: 0,
+    color: '#fff'
+  },
   employeeName: {
     fontFamily: "'Montserrat', sans-serif",
     fontWeight: 600,

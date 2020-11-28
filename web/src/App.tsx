@@ -76,6 +76,20 @@ setTimeout(() => {
             note: "Brukket arm. Fått med smertestillende hjem. Dette er helt kaos, liksom wallah.",
             doctor: "Frode Ortevik",
           },
+          {
+            id: 8,
+            name: "Cody Axelson",
+            date: "07/11/20",
+            note: "Brukket arm. Fått med smertestillende hjem. Dette er helt kaos, liksom wallah.",
+            doctor: "Frode Ortevik",
+          },
+          {
+            id: 9,
+            name: "Cody Axelson",
+            date: "07/11/20",
+            note: "Brukket arm. Fått med smertestillende hjem. Dette er helt kaos, liksom wallah.",
+            doctor: "Frode Ortevik",
+          },
         ]
       }
     })

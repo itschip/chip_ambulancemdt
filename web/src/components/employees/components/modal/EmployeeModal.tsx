@@ -5,6 +5,7 @@ import { useEmployeeDetail } from '../../hooks/useEmployeeDetail';
 import { useModal } from '../../hooks/useModal'
 import useStyles from './modal.styles';
 import ModalCards from './ModalCards';
+import CloseIcon from '@material-ui/icons/Close';
 import '../Employee.css';
 import TreatmentModal from '../../../treatments/components/TreatmentModal';
 import { useTreatmentModal } from '../../../treatments/hooks/useTreatmentModal';
@@ -27,7 +28,7 @@ const EmployeeModal = () => {
       <Modal visible={modal}>
         <TreatmentModal overview={false} />
         <div className={treatmentModal ? classes.backgroundModal : undefined} />
-        <Button onClick={handleClose}>Lukk</Button>
+        <Button onClick={handleClose} className={classes.modalCloseButton}><CloseIcon /></Button>
         <div> 
           <div className={classes.headerContainer}>
             <h1 className={classes.employeeName}>{detail.firstname} {detail.lastname}</h1>
