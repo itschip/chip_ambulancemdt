@@ -7,11 +7,13 @@ import useStyles from './modal.styles';
 import ModalCards from './ModalCards';
 import '../Employee.css';
 import TreatmentModal from '../../../treatments/components/TreatmentModal';
+import { useTreatmentModal } from '../../../treatments/hooks/useTreatmentModal';
 
 const EmployeeModal = () => {
   const { modal, setModal } = useModal(); 
   const { detail, setDetail } = useEmployeeDetail();
   const classes = useStyles();
+  const { treatmentModal } = useTreatmentModal();
 
   const handleClose = () => {
     setModal(false);
@@ -24,6 +26,7 @@ const EmployeeModal = () => {
     <div>
       <Modal visible={modal}>
         <TreatmentModal overview={false} />
+        <div className={treatmentModal ? classes.backgroundModal : undefined} />
         <Button onClick={handleClose}>Lukk</Button>
         <div> 
           <div className={classes.headerContainer}>
