@@ -8,13 +8,12 @@ const PatientGrid = () => {
   const { patients } = usePatients();
   const { filterPatient } = useFilteredPatients();
 
-  if (!patients) return <p>loading</p>;
+  if (!patients) return null
 
   return (
     <div style={{ marginTop: 30, margin: 20 }}>
       <Grid container spacing={4}>
         {patients
-          .filter((patient) => patient.lastname.includes(filterPatient) || patient.firstname.includes(filterPatient)) 
           .map((patient) => (
             <Grid key={patient.id} item xs={2}>
               <PatientCard key={patient.id} {...patient} />
