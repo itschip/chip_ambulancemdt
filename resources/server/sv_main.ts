@@ -1,32 +1,38 @@
 import events from '../utils/events';
 import { ESX, getSource } from './server';
 
-let ambulancePlayers: any = [];
-
-async function fetchOnlinePlayers() {
-  const players = ESX.GetPlayers();
-
-  for (let index = 0; index < players.length; index++) {
-    const xPlayer = ESX.GetPlayerFromId(players[index]);
-    if (ambulancePlayers.includes(xPlayer.getName())) {
-      console.log("name is already in the database")
-    } else {
-      ambulancePlayers.push(xPlayer.getName());
-    }
-  }
-  emitNet(events.SEND_AMBULANCEPLAYERS, getSource(), ambulancePlayers);
-}
+let ambutest: any = [];
 
 RegisterCommand('checkplayers', (source: any, args: any, raw: any) => {
-  fetchOnlinePlayers()
-  ambulancePlayers.forEach((element: any) => {
-    console.log(element.name)
+  fetchOnlinePlayersTest()
+  ambutest.forEach((element: any) => {
+    console.log("name:")
+    console.log(element)
   });
 }, false)
 
 
+
+function fetchOnlinePlayersTest() {
+  const players = ESX.GetPlayers();
+
+  for (let index = 0; index < players.length; index++) {
+    const xPlayer = ESX.GetPlayerFromId(players[index]);
+    if (ambutest.includes(xPlayer.getName())) {
+      console.log("name is already in the database")
+    } else {
+      ambutest.push(xPlayer.getName());
+      console.log("player pushed")
+    }
+  }
+  ambutest.forEach((element: any) => {
+    console.log("name:" + element)
+  });
+  emitNet(events.SEND_AMBULANCEPLAYERS, getSource(), ambutest);
+}
+
 onNet(events.FETCH_AMBULANCEPLAYERS, () => {
-  fetchOnlinePlayers();
+  fetchOnlinePlayersTest();
 })
 
 

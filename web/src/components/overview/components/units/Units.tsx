@@ -11,14 +11,8 @@ import useStyles from './units.styles';
 import { useUnits } from '../../hooks/useUnits';
 
 const Units = () => {
-  const { units } = useUnits();
+  const units = useUnits();
   const classes = useStyles();
-
-  const UnitStatus = {
-    Ledig: { background: '#2ed573', color: '#fff' },
-    Opptatt: {background: '#ff4757', color: '#fff'},
-    Pause: {background: '#ffa502', color: '#fff'}
-  }
 
   if (!units) return <p>loading</p>
 
@@ -32,9 +26,9 @@ const Units = () => {
         </TableHead>
         <TableBody>
           {units.map((unit) => (
-            <TableRow key={unit.id}>
+            <TableRow key={unit}>
               <TableCell component="th" scope="row">
-                <Chip label={`${unit.name}`} style={UnitStatus[unit.status]}/>
+                <Chip label={unit}/>
               </TableCell>
             </TableRow>
           ))}

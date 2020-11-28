@@ -3,7 +3,7 @@ import { atom } from 'recoil';
 export const coreState = {
   visibility: atom({
     key: 'coreStateHidden',
-    default: true
+    default: false
   }),
   credentials: atom({
     key: 'credentialsSource',
@@ -11,6 +11,6 @@ export const coreState = {
   }),
   role: atom({
     key: 'ambuCadRole',
-    default: "boss"
+    default: "user"
   })
 }

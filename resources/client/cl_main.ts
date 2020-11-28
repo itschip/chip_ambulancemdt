@@ -2,27 +2,47 @@ import events from '../utils/events';
 import { Delay } from '../utils/fivem';
 import { ESX } from './client';
 
-
 on('esx:setJob', (job: any) => {
   ESX.GetPlayerData().job = job
 })
 
-RegisterCommand('cad:show', (source: any, args: any, raw: any) => {
-  cadOpenAnim()
-  newCadProp()
-  checkRole()
-  SendNuiMessage(
-    JSON.stringify({
-      app: "AMBULANCEMDT",
-      method: "setVisibility",
-      data: true
-    })
-  )
+let cadOpen = false;
 
-  SetNuiFocus(true, true);
-  emitNet(events.PATIENTS_FETCH_ALL_PATIENTS);
-  emitNet(events.FETCH_CREDENTIALS)
-  emitNet(events.FETCH_AMBULANCEPLAYERS);
+RegisterCommand('journal', (source: any, args: any, raw: any) => {
+  if (ESX.GetPlayerData().job.name == "ambulance") {
+    if (!cadOpen) {
+      cadOpen = true
+      cadOpenAnim()
+      newCadProp()
+      checkRole()
+      SendNuiMessage(
+        JSON.stringify({
+          app: "AMBULANCEMDT",
+          method: "setVisibility",
+          data: true
+        })
+      )
+
+      SetNuiFocus(true, true);
+      emitNet(events.PATIENTS_FETCH_ALL_PATIENTS);
+      emitNet(events.FETCH_CREDENTIALS)
+      emitNet(events.FETCH_AMBULANCEPLAYERS);
+
+    } else if (cadOpen) {
+      cadOpen = false;
+      SendNuiMessage(
+        JSON.stringify({
+          app: "AMBULANCEMDT",
+          method: "setVisibility",
+          data: false
+        })
+      )
+      SetNuiFocus(false, false);
+      cadCloseAnim()
+    }
+  } else {
+    console.log("fuck off")
+  }
 }, false);
 
 
@@ -107,18 +127,6 @@ function cadCloseAnim() {
 }
 
 
-RegisterCommand('cad:hide', (source: any, args: any, raw: any) => {
-  SendNuiMessage(
-    JSON.stringify({
-      app: "AMBULANCEMDT",
-      method: "setVisibility",
-      data: false
-    })
-  )
-  SetNuiFocus(false, false);
-  cadCloseAnim()
-}, false);
-
 onNet(events.SEND_CREDENTIALS, (credentials: any) => {
   SendNuiMessage(
     JSON.stringify({
@@ -140,6 +148,7 @@ on(`__cfx_nui:ambu:cad:close`, () => {
   )
   cadCloseAnim()
   SetNuiFocus(false, false);
+  cadOpen = false
 })
 
 function checkRole() {
@@ -182,8 +191,3 @@ onNet(events.EMPLOYEES_SEND_EMPLOYEES, (employees: any) => {
     })
   )
 })
-
-
-RegisterCommand('getambulance', (source: any, args: any, raw: any) => {
-  emitNet(events.EMPLOYEES_FETCH_EMPLOYEES)
-}, false)
