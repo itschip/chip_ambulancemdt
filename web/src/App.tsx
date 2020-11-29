@@ -18,6 +18,298 @@ import { EmployeeContainer } from './components/employees/EmployeeContainer';
 import { useEmployeeService } from './components/employees/hooks/useEmployeeService';
 
 
+setTimeout(() => {
+  window.dispatchEvent(
+    new MessageEvent("message", {
+      data: {
+        app: "PATIENTS",
+        method: "setPatients",
+        data: [
+          {
+            id: 1,
+            firstname: "hello",
+            lastname: "gangshit",
+            DOB: "03/03/2001"
+          },
+          {
+            id: 1,
+            firstname: "hello",
+            lastname: "gangshit",
+            DOB: "03/03/2001"
+          },
+          {
+            id: 1,
+            firstname: "hello",
+            lastname: "gangshit",
+            DOB: "03/03/2001"
+          },
+          {
+            id: 1,
+            firstname: "hello",
+            lastname: "gangshit",
+            DOB: "03/03/2001"
+          },
+          {
+            id: 1,
+            firstname: "hello",
+            lastname: "gangshit",
+            DOB: "03/03/2001"
+          },
+          {
+            id: 1,
+            firstname: "hello",
+            lastname: "gangshit",
+            DOB: "03/03/2001"
+          },
+          {
+            id: 1,
+            firstname: "hello",
+            lastname: "gangshit",
+            DOB: "03/03/2001"
+          },
+          {
+            id: 1,
+            firstname: "hello",
+            lastname: "gangshit",
+            DOB: "03/03/2001"
+          },
+          {
+            id: 1,
+            firstname: "hello",
+            lastname: "gangshit",
+            DOB: "03/03/2001"
+          },
+          {
+            id: 1,
+            firstname: "hello",
+            lastname: "gangshit",
+            DOB: "03/03/2001"
+          },
+          {
+            id: 1,
+            firstname: "hello",
+            lastname: "gangshit",
+            DOB: "03/03/2001"
+          },
+          {
+            id: 1,
+            firstname: "hello",
+            lastname: "gangshit",
+            DOB: "03/03/2001"
+          },
+          {
+            id: 1,
+            firstname: "hello",
+            lastname: "gangshit",
+            DOB: "03/03/2001"
+          },
+          {
+            id: 1,
+            firstname: "hello",
+            lastname: "gangshit",
+            DOB: "03/03/2001"
+          },
+          {
+            id: 1,
+            firstname: "hello",
+            lastname: "gangshit",
+            DOB: "03/03/2001"
+          },
+          {
+            id: 1,
+            firstname: "hello",
+            lastname: "gangshit",
+            DOB: "03/03/2001"
+          },
+          {
+            id: 1,
+            firstname: "hello",
+            lastname: "gangshit",
+            DOB: "03/03/2001"
+          },
+          {
+            id: 1,
+            firstname: "hello",
+            lastname: "gangshit",
+            DOB: "03/03/2001"
+          },
+          {
+            id: 1,
+            firstname: "hello",
+            lastname: "gangshit",
+            DOB: "03/03/2001"
+          },
+          {
+            id: 1,
+            firstname: "hello",
+            lastname: "gangshit",
+            DOB: "03/03/2001"
+          },
+          {
+            id: 1,
+            firstname: "hello",
+            lastname: "gangshit",
+            DOB: "03/03/2001"
+          },
+          {
+            id: 1,
+            firstname: "hello",
+            lastname: "gangshit",
+            DOB: "03/03/2001"
+          },
+
+        ],
+      },
+    })
+  );
+}, 1000);
+
+setTimeout(() => {
+  window.dispatchEvent(
+    new MessageEvent("message", {
+      data: {
+        app: "AMBULANCECAD",
+        method: "setEmployees",
+        data: [
+          {
+            id: 1,
+            firstname: "hello",
+            lastname: "gangshit",
+            DOB: "03/03/2001"
+          },
+          {
+            id: 1,
+            firstname: "hello",
+            lastname: "gangshit",
+            DOB: "03/03/2001"
+          },
+          {
+            id: 1,
+            firstname: "hello",
+            lastname: "gangshit",
+            DOB: "03/03/2001"
+          },
+          {
+            id: 1,
+            firstname: "hello",
+            lastname: "gangshit",
+            DOB: "03/03/2001"
+          },
+          {
+            id: 1,
+            firstname: "hello",
+            lastname: "gangshit",
+            DOB: "03/03/2001"
+          },
+          {
+            id: 1,
+            firstname: "hello",
+            lastname: "gangshit",
+            DOB: "03/03/2001"
+          },
+          {
+            id: 1,
+            firstname: "hello",
+            lastname: "gangshit",
+            DOB: "03/03/2001"
+          },
+          {
+            id: 1,
+            firstname: "hello",
+            lastname: "gangshit",
+            DOB: "03/03/2001"
+          },
+          {
+            id: 1,
+            firstname: "hello",
+            lastname: "gangshit",
+            DOB: "03/03/2001"
+          },
+          {
+            id: 1,
+            firstname: "hello",
+            lastname: "gangshit",
+            DOB: "03/03/2001"
+          },
+          {
+            id: 1,
+            firstname: "hello",
+            lastname: "gangshit",
+            DOB: "03/03/2001"
+          },
+          {
+            id: 1,
+            firstname: "hello",
+            lastname: "gangshit",
+            DOB: "03/03/2001"
+          },
+          {
+            id: 1,
+            firstname: "hello",
+            lastname: "gangshit",
+            DOB: "03/03/2001"
+          },
+          {
+            id: 1,
+            firstname: "hello",
+            lastname: "gangshit",
+            DOB: "03/03/2001"
+          },
+          {
+            id: 1,
+            firstname: "hello",
+            lastname: "gangshit",
+            DOB: "03/03/2001"
+          },
+          {
+            id: 1,
+            firstname: "hello",
+            lastname: "gangshit",
+            DOB: "03/03/2001"
+          },
+          {
+            id: 1,
+            firstname: "hello",
+            lastname: "gangshit",
+            DOB: "03/03/2001"
+          },
+          {
+            id: 1,
+            firstname: "hello",
+            lastname: "gangshit",
+            DOB: "03/03/2001"
+          },
+          {
+            id: 1,
+            firstname: "hello",
+            lastname: "gangshit",
+            DOB: "03/03/2001"
+          },
+          {
+            id: 1,
+            firstname: "hello",
+            lastname: "gangshit",
+            DOB: "03/03/2001"
+          },
+          {
+            id: 1,
+            firstname: "hello",
+            lastname: "gangshit",
+            DOB: "03/03/2001"
+          },
+          {
+            id: 1,
+            firstname: "hello",
+            lastname: "gangshit",
+            DOB: "03/03/2001"
+          },
+
+        ],
+      },
+    })
+  );
+}, 1000);
+
 function App() {
   const { visibility } = useVisibility()
   useNuiService();

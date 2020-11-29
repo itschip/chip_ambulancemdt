@@ -11,6 +11,6 @@ export const coreState = {
   }),
   role: atom({
     key: 'ambuCadRole',
-    default: "user"
+    default: "boss"
   })
 }

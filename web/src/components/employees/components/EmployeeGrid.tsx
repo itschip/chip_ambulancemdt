@@ -9,10 +9,10 @@ const EmployeeGrid = () => {
   if (!employees) return null
 
   return (
-    <div>
+    <div style={{ marginTop: 30, margin: 0, overflow: "auto", maxHeight: 560, overflowX: "hidden", padding: 10 }}>
       <Grid container spacing={4}>
         {employees.map((employee) => (
-          <Grid>
+          <Grid item xs={2}>
             <EmployeeCard key={employee.id} {...employee} />
           </Grid>
         ))}

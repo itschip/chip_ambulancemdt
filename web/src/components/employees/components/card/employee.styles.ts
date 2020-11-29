@@ -4,9 +4,9 @@ const useStyles = makeStyles((theme: Theme) => ({
   root: {
     background: '#73a3c9',
     color: '#fff',
-    width: 250,
-    height: 150,
-    margin: 40, 
+    width: 200,
+    height: 140,
+    margin: 14
   },
   cardTypo: {
     fontFamily: "'Montserrat', sans-serif",

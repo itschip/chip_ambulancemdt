@@ -11,7 +11,7 @@ const PatientGrid = () => {
   if (!patients) return null
 
   return (
-    <div style={{ marginTop: 30, margin: 20 }}>
+    <div style={{ marginTop: 30, margin: 20, overflow: "auto", maxHeight: 560, overflowX: "hidden", padding: 10 }}>
       <Grid container spacing={4}>
         {patients
           .map((patient) => (

@@ -21,11 +21,11 @@
 }
 
 .patient-overview * {
-  font-family: 'Montserrat', sans-serif,
+  font-family: 'Montserrat', sans-serif;
 }
 /* width */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 5px;
 }
 
 /* Track */

@@ -22,7 +22,7 @@ const PatientCard = (patient) => {
 
   const classes = useStyles();
   return (
-    <div className="patient-card">
+    <div className={classes.patientCard}>
     <Card className={classes.root} variant="elevation" >
       <CardContent>
         <Typography className={classes.cardTypo} style={{ fontSize: 20, fontWeight: 600 }}>
