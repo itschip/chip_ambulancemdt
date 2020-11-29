@@ -4,6 +4,15 @@ import { ESX } from './client';
 
 onNet('esx:setJob', (job: any) => {
   ESX.GetPlayerData().job = job
+  console.log(job)
+
+  SendNuiMessage(
+    JSON.stringify({
+      app: "AMBULANCECAD",
+      method: "setJobGrade",
+      data: job.grade_label
+    })
+  )
 })
 
 let cadOpen = false;
@@ -24,9 +33,17 @@ RegisterCommand('journal', (source: any, args: any, raw: any) => {
       )
 
       SetNuiFocus(true, true);
-      //emitNet(events.PATIENTS_FETCH_ALL_PATIENTS);
       emitNet(events.FETCH_CREDENTIALS)
       emitNet(events.FETCH_AMBULANCEPLAYERS);
+      emitNet(events.TREATMENTS_FETCH_ALL_TREATMENTS)
+
+      SendNuiMessage(
+        JSON.stringify({
+          app: "AMBULANCECAD",
+          method: "setJobGrade",
+          data: ESX.GetPlayerData().job.grade_label
+        })
+      )
 
     } else if (cadOpen) {
       cadOpen = false;
@@ -192,18 +209,6 @@ onNet(events.EMPLOYEES_SEND_EMPLOYEES, (employees: any) => {
       app: 'AMBULANCECAD',
       method: 'setEmployees',
       data: employees
-    })
-  )
-})
-
-onNet(events.EMPLOYEES_SEND_JOBLABEL, (jobLabel: any) => {
-  console.log("are you even triggerd")
-  console.log("client: " + jobLabel)
-  SendNuiMessage(
-    JSON.stringify({
-      app: "AMBULANCECAD",
-      method: "setJobGrade",
-      data: jobLabel
     })
   )
 })

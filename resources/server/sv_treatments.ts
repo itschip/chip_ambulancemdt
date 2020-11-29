@@ -24,7 +24,7 @@ async function createTreatment(treatment: ITreatment): Promise<any> {
  * The player's name.
  */
 async function fetchAllTreatments(playerName: string): Promise<ITreatment[]> {
-  const query = "SELECT * FROM or_ambu_treatments";
+  const query = "SELECT * FROM or_ambu_treatments ORDER BY id DESC LIMIT 5";
   const [results] = await pool.query(query);
   const treatments = <ITreatment[]>results;
   return treatments;
@@ -78,7 +78,7 @@ onNet(events.TREATMENTS_FETCH_ALL_TREATMENTS, async (patientName: string) => {
 
 onNet(events.TREATMETNS_FETCH_SCOPED_TREATMENTS, async (patientName: string) => {
   const scopedTreatments = await fetchScopedTreatments(patientName);
-  emitNet(events.TREATMENTS_SEND_TREATMENTS, getSource(), scopedTreatments);
+  emitNet(events.TREATMENTS_SEND_SCOPED_TREATMENTS, getSource(), scopedTreatments);
 });
 
 onNet(events.TREATMENTS_UPDATE_TREATMENTS, async (treatments: ITreatment) => {

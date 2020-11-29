@@ -3,16 +3,6 @@ import { ESX, getSource } from './server';
 
 let ambutest: any = [];
 
-RegisterCommand('checkplayers', (source: any, args: any, raw: any) => {
-  fetchOnlinePlayersTest()
-  ambutest.forEach((element: any) => {
-    console.log("name:")
-    console.log(element)
-  });
-}, false)
-
-
-
 function fetchOnlinePlayersTest() {
   const players = ESX.GetPlayers();
 
@@ -22,12 +12,8 @@ function fetchOnlinePlayersTest() {
       console.log("name is already in the database")
     } else {
       ambutest.push(xPlayer.getName());
-      console.log("player pushed")
     }
   }
-  ambutest.forEach((element: any) => {
-    console.log("name:" + element)
-  });
   emitNet(events.SEND_AMBULANCEPLAYERS, getSource(), ambutest);
 }
 
