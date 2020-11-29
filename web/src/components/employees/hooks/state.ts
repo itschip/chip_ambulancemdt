@@ -13,4 +13,8 @@ export const employeeState = {
     key: 'employeeDetail',
     default: null
   }),
+  employeeGrade: atom({
+    key: 'employeeGrade',
+    default: ""
+  })
 }

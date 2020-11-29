@@ -8,15 +8,7 @@ import useStyles from './otreatments.styles';
 export const OTreatmentGrid = () => {
   const classes = useStyles();
   const { treatments } = useTreatments();
-  if (!treatments) return (
-    <CircularProgress 
-      thickness={6}
-      style={{
-        color: '#4f9cdb',
-        position: 'absolute',
-      }}
-    />
-  )
+  if (!treatments) return <h2 style={{ color: '#73a3c9', margin: 10 }}>Ingen behandlinger</h2>
 
   return (
     <div className={classes.rootGrid}>

@@ -14,7 +14,20 @@ const Units = () => {
   const units = useUnits();
   const classes = useStyles();
 
-  if (!units) return <p>loading</p>
+  if (!units) {
+    return (
+      <TableContainer className={classes.tableContainer}>
+        <Table className={classes.table}>
+          <TableHead>
+            <TableRow>
+              <TableCell className={classes.tableHeader} style={{ fontWeight: 800, fontSize: 20, color: '#73a3c9' }}>Enheter</TableCell>
+            </TableRow>
+          </TableHead>
+        </Table>
+      </TableContainer>
+    )
+  }
+
 
   return (
     <TableContainer className={classes.tableContainer}>

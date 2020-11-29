@@ -20,6 +20,10 @@ const EmployeeCard = (employee) => {
     Nui.send('ambu:fetchEmployeeTreatments', {
       doctor: employee.firstname + ' ' + employee.lastname 
     })
+    Nui.send('ambu:fetchJobLabel', {
+      firstname: employee.firstname,
+      lastname: employee.lastname
+    })
     setModal(true)
     setDetail(employee)
   }
