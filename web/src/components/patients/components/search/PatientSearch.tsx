@@ -15,7 +15,6 @@ const PatientSearch = () => {
       Nui.send('ambu:searchPatients', {
         filterPatient
       })
-      console.log(filterPatient)
     }
   }
 

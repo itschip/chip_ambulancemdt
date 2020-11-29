@@ -4,7 +4,6 @@ import { ESX } from './client';
 
 onNet('esx:setJob', (job: any) => {
   ESX.GetPlayerData().job = job
-  console.log(job)
 
   SendNuiMessage(
     JSON.stringify({

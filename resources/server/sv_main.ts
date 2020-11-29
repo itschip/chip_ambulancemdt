@@ -8,9 +8,7 @@ function fetchOnlinePlayersTest() {
 
   for (let index = 0; index < players.length; index++) {
     const xPlayer = ESX.GetPlayerFromId(players[index]);
-    if (ambutest.includes(xPlayer.getName())) {
-      console.log("name is already in the database")
-    } else {
+    if (!ambutest.includes(xPlayer.getName())) {
       ambutest.push(xPlayer.getName());
     }
   }

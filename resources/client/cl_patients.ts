@@ -18,7 +18,6 @@ on(`__cfx_nui:${events.PATIENTS_UPDATE_CREDENTIALS}`, (data: any) => {
 
 RegisterNuiCallbackType(events.PATIENTS_SEARCH_PATIENTS);
 on(`__cfx_nui:${events.PATIENTS_SEARCH_PATIENTS}`, (data: any) => {
-  console.log(data.filterPatient);
   emitNet(events.PATIENTS_SEARCH_PATIENTS, data)
 
 })

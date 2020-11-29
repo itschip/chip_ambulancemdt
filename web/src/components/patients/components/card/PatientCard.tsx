@@ -14,7 +14,6 @@ const PatientCard = (patient) => {
     setPatientModal(true)
     setPatientCreds(patient);
     const patientName = patient.firstname + " " +  patient.lastname
-    console.log(patientName)
     Nui.send('ambu:fetchScopedTreatments', {
       patientName
     })

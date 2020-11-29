@@ -39,14 +39,12 @@ const TreatmentModal = ({ overview }) => {
   const handleClose = () => {
     setTreatmentModal(false);
     setTreatmentDetail(null);
-    console.log(patientName)
   };
 
   // nui functions
 
   // sending new treatment
   const handleNewTreatment = () => {
-    console.log(name)
     Nui.send('ambu:newTreatmeant', {
       name,
       note,
