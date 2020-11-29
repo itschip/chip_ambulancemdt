@@ -21,7 +21,7 @@ export const useNuiEvent = (app: any, method: any, handler: any, options: IOptio
     const eventListener = (event: any ) => {
       if (savedHandler.current && savedHandler.current.call) {
         const { data } = event;
-        console.log(eventName, data);
+        //console.log(eventName, data);
         savedHandler.current(data);
       }
     };
