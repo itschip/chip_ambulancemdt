@@ -8,7 +8,7 @@ function fetchOnlinePlayersTest() {
 
   for (let index = 0; index < players.length; index++) {
     const xPlayer = ESX.GetPlayerFromId(players[index]);
-    if (!ambutest.includes(xPlayer.getName())) {
+    if (!ambutest.includes(xPlayer.getName()) && xPlayer.getJob().grade_name === "ambulance") {
       ambutest.push(xPlayer.getName());
     }
   }
