@@ -10,7 +10,7 @@ export async function useIdentifier() {
   const identifier = ESX.GetPlayerFromId(getSource()).getIdentifier();
   return identifier;
 }
-
+ 
 export async function usePlayerName(identifier: string): Promise<string> {
   const query = "SELECT firstname, lastname FROM users WHERE identifier = ? "
   const [results] = await pool.query(query, [identifier])
