@@ -4,6 +4,7 @@ export default {
   PATIENTS_SEND_ALL_PATIENTS: 'ambu:sendAllPatients',
   PATIENTS_UPDATE_CREDENTIALS: 'ambu:updatePatientCredentials',
   PATIENTS_UPDATE_CREDENTIALS_SUCCESS: 'ambu:updatePatientCredentialsSuccess',
+  PATIENTS_SEARCH_PATIENTS: 'ambu:searchPatients',
 
   // treatements
   TREATMENTS_ADD_TREATMENT: 'ambu:newTreatmeant',
@@ -26,5 +27,7 @@ export default {
   FETCH_AMBULANCEPLAYERS: 'ambu:fetchAmbulancePlayers',
   SEND_AMBULANCEPLAYERS: 'ambu:sendAmbulancePlayers',
   EMPLOYEES_FETCH_EMPLOYEES: 'ambu:fetchAmbulanceEmployees',
-  EMPLOYEES_SEND_EMPLOYEES: 'ambu:sendAmbulanceEmployees'
+  EMPLOYEES_SEND_EMPLOYEES: 'ambu:sendAmbulanceEmployees',
+  EMPLOYEES_FETCH_JOBLABEL: 'ambu:fetchJobLabel',
+  EMPLOYEES_SEND_JOBLABEL: 'ambu:sendJobLabel'
 }

@@ -2,7 +2,7 @@ import events from '../utils/events';
 import { Delay } from '../utils/fivem';
 import { ESX } from './client';
 
-on('esx:setJob', (job: any) => {
+onNet('esx:setJob', (job: any) => {
   ESX.GetPlayerData().job = job
 })
 
@@ -24,7 +24,7 @@ RegisterCommand('journal', (source: any, args: any, raw: any) => {
       )
 
       SetNuiFocus(true, true);
-      emitNet(events.PATIENTS_FETCH_ALL_PATIENTS);
+      //emitNet(events.PATIENTS_FETCH_ALL_PATIENTS);
       emitNet(events.FETCH_CREDENTIALS)
       emitNet(events.FETCH_AMBULANCEPLAYERS);
 
@@ -126,7 +126,6 @@ function cadCloseAnim() {
   ClearPedTasks(PlayerPedId())
 }
 
-
 onNet(events.SEND_CREDENTIALS, (credentials: any) => {
   SendNuiMessage(
     JSON.stringify({
@@ -182,12 +181,29 @@ on(`__cfx_nui:${events.TREATMENTS_FETCH_EMPLOYEE_TREATMENTS}`, (data: any) => {
   emitNet(events.TREATMENTS_FETCH_EMPLOYEE_TREATMENTS, data.doctor)
 })
 
+RegisterNuiCallbackType(events.EMPLOYEES_FETCH_JOBLABEL);
+on(`__cfx_nui:${events.EMPLOYEES_FETCH_JOBLABEL}`, (data: any) => {
+  emitNet(events.EMPLOYEES_FETCH_JOBLABEL, data)
+})
+
 onNet(events.EMPLOYEES_SEND_EMPLOYEES, (employees: any) => {
   SendNuiMessage(
     JSON.stringify({
       app: 'AMBULANCECAD',
       method: 'setEmployees',
       data: employees
+    })
+  )
+})
+
+onNet(events.EMPLOYEES_SEND_JOBLABEL, (jobLabel: any) => {
+  console.log("are you even triggerd")
+  console.log("client: " + jobLabel)
+  SendNuiMessage(
+    JSON.stringify({
+      app: "AMBULANCECAD",
+      method: "setJobGrade",
+      data: jobLabel
     })
   )
 })

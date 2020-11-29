@@ -15,6 +15,6 @@ export const employeeState = {
   }),
   employeeGrade: atom({
     key: 'employeeGrade',
-    default: ""
+    default: null
   })
 }
