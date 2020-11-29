@@ -58,7 +58,7 @@ RegisterCommand('journal', (source: any, args: any, raw: any) => {
       cadCloseAnim()
     }
   } else {
-    console.log("fuck off")
+    ESX.ShowHelpNotification('Du har ikke tilgang til Journalen', true, false, 2000)
   }
 }, false);
 
