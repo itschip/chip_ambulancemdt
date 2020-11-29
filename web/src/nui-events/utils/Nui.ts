@@ -5,7 +5,7 @@ export default {
     // /// #endif
 
     /* eslint-disable no-unreachable */
-    return fetch(`http://or-ambumdt/${event}`, {
+    return fetch(`http://or_ambumdt/${event}`, {
       method: "post",
       headers: {
         "Content-type": "application/json; charset=UTF-8",
