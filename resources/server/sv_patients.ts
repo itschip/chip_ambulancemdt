@@ -3,9 +3,10 @@ import events from "../utils/events";
 import { ESX, getSource } from "./server";
 import { IPatient } from "../../web/src/interfaces/patients";
 
+
 async function getFilteredPatients(search: string): Promise<any> {
   const query =
-    "SELECT firstname, lastname, dateofbirth, bloodtype, avatar, phone_number, doctor FROM users WHERE lower(firstname) LIKE lower(?) OR lower(lastname) LIKE lower(?) LIMIT 10";
+    "SELECT firstname, lastname, dateofbirth, bloodtype, avatar, phone_number, doctor FROM users WHERE lower(firstname) LIKE lower(?) OR lower(lastname) LIKE lower(?)";
   const [results] = await pool.query(query, [search, search]);
   const patients = results;
   return patients;

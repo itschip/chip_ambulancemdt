@@ -11,12 +11,12 @@ client_script {
 }
 
 server_script {
-'resources/dist/server/*.server.js',
+'resources/dist/server/*.server.js'
 }
 
 ui_page 'html/index.html'
 
 files {
   'html/index.html',
-  'html/main.js'
+  'html/*.js'
 }
