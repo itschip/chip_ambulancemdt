@@ -26,13 +26,14 @@ const TreatmentModal = ({ overview }) => {
 
   const [name, setName] = useState<string | null>(null)
   const [note, setNote] = useState<string | null>(null)
-  const [doctor, setDoctor] = useState<string | null>(treatmentDetail ? treatmentDetail.doctor : credentials?.name)
+  const [doctor, setDoctor] = useState<string | null>(null)
   const [date, setDate] = useState<string | null>(treatmentDetail ? treatmentDetail.date : dayjs().format("DD/MM/YYYY"))
 
   // FIXME:
   useEffect(() => {
     setNote(treatmentDetail ? treatmentDetail.note : "");
     setName(treatmentDetail ? treatmentDetail?.name : patientName)
+    setDoctor(treatmentDetail ? treatmentDetail.doctor : credentials?.name)
   }, [treatmentDetail])
   
   const classes = useStyles();
