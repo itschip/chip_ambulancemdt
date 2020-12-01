@@ -66,9 +66,16 @@ async function deleteTreatment(treatment: ITreatment) {
 // Should probably add two functions. One for scoped treatments and one for every single. Or really just 7,
 // which will be used in the overview page.
 
+// add treatment
+
 onNet(events.TREATMENTS_ADD_TREATMENT, (treatment: ITreatment) => {
-  createTreatment(treatment);
-  emitNet(events.TREATMENTS_ADD_TREATMENT_SUCCESS, getSource(), treatment);
+  try {
+    createTreatment(treatment);
+    emitNet(events.TREATMENTS_ADD_TREATMENT_SUCCESS, getSource(), 
+    treatment); 
+  } catch (error) {
+    emitNet(events.TREATMENTS_ADD_TREATMENT_FAILED, getSource())
+  }
 });
 
 onNet(events.TREATMENTS_FETCH_ALL_TREATMENTS, async (patientName: string) => {
@@ -81,13 +88,27 @@ onNet(events.TREATMETNS_FETCH_SCOPED_TREATMENTS, async (patientName: string) => 
   emitNet(events.TREATMENTS_SEND_SCOPED_TREATMENTS, getSource(), scopedTreatments);
 });
 
+// update treatment
+
 onNet(events.TREATMENTS_UPDATE_TREATMENTS, async (treatments: ITreatment) => {
-  await updateTreatments(treatments);
+  try {
+    await updateTreatments(treatments);
+    emitNet(events.TREATMENTS_UPDATE_TREATMENTS_RESULT, getSource(), 'treatmentUpdatedSuccessful') 
+  } catch (error) {
+    emitNet(events.TREATMENTS_UPDATE_TREATMENTS_RESULT, getSource(), 'treatmentUpdatedFailed') 
+  }
 });
 
+// delete treatment
+
 onNet(events.TREATMENTS_DELETE_TREATMENT, async (treatment: ITreatment) => {
-  await deleteTreatment(treatment);
-  emitNet(events.TREATMENTS_DELETE_TREATMENT_SUCCESS, getSource(), treatment);
+  try {
+    await deleteTreatment(treatment);
+    emitNet(events.TREATMENTS_DELETE_TREATMENT_SUCCESS, getSource(), treatment);
+    emitNet(events.TREATMENTS_UPDATE_TREATMENTS_RESULT, getSource(), 'treatmentDeletedSuccessful')
+  } catch (error) {
+    emitNet(events.TREATMENTS_DELETE_TREATMENT_RESULT, getSource(), 'treatmentDeletedFailed')
+  }
 });
 
 onNet(events.TREATMENTS_FETCH_EMPLOYEE_TREATMENTS, async (playerName: string) => {

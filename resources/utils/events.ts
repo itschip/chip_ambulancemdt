@@ -15,9 +15,12 @@ export default {
   TREATMENTS_FETCH_EMPLOYEE_TREATMENTS: 'ambu:fetchEmployeeTreatments',
   TREATMENTS_SEND_EMPLOYEE_TREATMENTS: 'ambu:sendEmployeeTreatments',
   TREATMENTS_UPDATE_TREATMENTS: 'ambu:updateTreatment',
+  TREATMENTS_UPDATE_TREATMENTS_RESULT: 'ambu:updateTreatmentResult',
   TREATMENTS_ADD_TREATMENT_SUCCESS: 'ambu:newTreatmentSuccess',
+  TREATMENTS_ADD_TREATMENT_FAILED: 'ambu:newTreatmentFailed',
   TREATMENTS_DELETE_TREATMENT: 'ambu:deleteTreatment',
   TREATMENTS_DELETE_TREATMENT_SUCCESS: 'ambu:deleteTreatmentSuccess',
+  TREATMENTS_DELETE_TREATMENT_RESULT: 'ambu:deleteTreatmentResult',
 
   // source
   FETCH_CREDENTIALS: 'ambu:fetchCredentials',
