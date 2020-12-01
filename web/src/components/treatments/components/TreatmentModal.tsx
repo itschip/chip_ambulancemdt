@@ -12,6 +12,7 @@ import Nui from "../../../nui-events/utils/Nui";
 import CloseIcon from '@material-ui/icons/Close';
 import { useCredentials } from "../../../core/hooks/useCredentials";
 import { useRole } from "../../../core/hooks/useRole";
+import { Notification } from "../../ui/Notification/Notification";
 
 
 const TreatmentModal = ({ overview }) => {

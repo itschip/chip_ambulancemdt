@@ -51,7 +51,9 @@ const useStyles = makeStyles((theme: Theme) => ({
     margin: 10
   },
   overviewCards: {
-    maxHeight: 350,
+    maxHeight: 330,
+    height: 330,
+    marginBottom: 15,
     overflow: 'auto',
     overflowX: 'hidden'
   },

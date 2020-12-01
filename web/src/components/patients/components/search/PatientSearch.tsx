@@ -13,6 +13,7 @@ const PatientSearch = () => {
   const handlePatientSearch = (event) => {
     if (event.key === "Enter") {
       Nui.send('ambu:searchPatients', {
+        // FIXME: maybe use filterPatient: filterPatient.toLowerCase()
         filterPatient
       })
     }

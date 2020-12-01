@@ -16,7 +16,110 @@ import PatientContainer from './components/patients/PatientContainer';
 import { usePatientService } from './components/patients/hooks/usePatientService';
 import { EmployeeContainer } from './components/employees/EmployeeContainer';
 import { useEmployeeService } from './components/employees/hooks/useEmployeeService';
+import { useNotificationService } from './components/ui/Notification/hooks/useNotificationService';
 
+
+setTimeout(() => {
+  window.dispatchEvent(
+    new MessageEvent("message", {
+      data: {
+        app: "AMBULANCECAD",
+        method: "setNotification",
+        data: 'treatmentSuccessful',
+      },
+    })
+  );
+}, 1000);
+
+setTimeout(() => {
+  window.dispatchEvent(
+    new MessageEvent("message", {
+      data: {
+        app: "PATIENTS",
+        method: "setPatients",
+        data: [
+          {
+            id: 1,
+            firstname: 'Yoink',
+            lastname: 'shit',
+            dateofbirth: 'shit',
+            bloodtype: 'fuck',
+            doctor: 'hahaha'
+          }
+        ],
+      },
+    })
+  );
+}, 1000);
+
+setTimeout(() => {
+  window.dispatchEvent(
+    new MessageEvent("message", {
+      data: {
+        app: "TREATMENTS",
+        method: "setTreatments",
+        data: [
+          {
+            id: 1,
+            name: 'a',
+            note: 'fuck',
+            doctor: 'yeet',
+            data: 'fuckoff'
+          },
+          {
+            id: 1,
+            name: 'a',
+            note: 'fuck',
+            doctor: 'yeet',
+            data: 'fuckoff'
+          },
+          {
+            id: 1,
+            name: 'a',
+            note: 'fuck',
+            doctor: 'yeet',
+            data: 'fuckoff'
+          },
+          {
+            id: 1,
+            name: 'a',
+            note: 'fuck',
+            doctor: 'yeet',
+            data: 'fuckoff'
+          },
+          {
+            id: 1,
+            name: 'a',
+            note: 'fuck',
+            doctor: 'yeet',
+            data: 'fuckoff'
+          },
+          {
+            id: 1,
+            name: 'a',
+            note: 'fuck',
+            doctor: 'yeet',
+            data: 'fuckoff'
+          },
+          {
+            id: 1,
+            name: 'a',
+            note: 'fuck',
+            doctor: 'yeet',
+            data: 'fuckoff'
+          },
+          {
+            id: 1,
+            name: 'a',
+            note: 'fuck',
+            doctor: 'yeet',
+            data: 'fuckoff'
+          }
+        ],
+      },
+    })
+  );
+}, 1000);
 
 function App() {
   const { visibility } = useVisibility()
@@ -26,6 +129,7 @@ function App() {
   useOverviewService();
   usePatientService();
   useEmployeeService();
+  useNotificationService();
 
   return (
     <div style={ visibility ? { visibility: 'visible' } : { visibility: 'hidden' }}>

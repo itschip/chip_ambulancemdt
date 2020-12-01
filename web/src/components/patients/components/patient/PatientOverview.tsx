@@ -20,6 +20,7 @@ import { useTreatmentModal } from "../../../treatments/hooks/useTreatmentModal";
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 //import { useTreatmentDetail } from "../../../treatments/hooks/useTreatmentDetail";
 import { useFilteredPatients } from "../../hooks/useFilteredPatients";
+import { Notification } from "../../../ui/Notification/Notification";
 
 
 const PatientOverview = () => {
@@ -40,7 +41,7 @@ const PatientOverview = () => {
     setTreatmentModal(true)
   }
 
-  if (!patientCreds || !treatments)
+  if (!patientCreds)
     return <Typography variant="h3">Could not fetch data</Typography>;
 
   return (
@@ -96,6 +97,7 @@ const PatientOverview = () => {
             ))}
           </Grid>
         </div>
+        <Notification />
       </div>
     </div>
   );
