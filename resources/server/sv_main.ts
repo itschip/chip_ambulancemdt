@@ -19,7 +19,6 @@ onNet(events.FETCH_AMBULANCEPLAYERS, () => {
   fetchOnlinePlayersTest();
 })
 
-
 onNet(events.FETCH_CREDENTIALS, async () => {
   const name = ESX.GetPlayerFromId(getSource()).getName()
   const credentials = {
