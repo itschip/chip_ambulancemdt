@@ -1,4 +1,4 @@
-import { CircularProgress } from '@material-ui/core';
+import { CircularProgress, Grid } from '@material-ui/core';
 import React from 'react'
 import { useTreatments } from '../../../treatments/hooks/useTreatments';
 import OTreatmentCard from './OTreatmentCard';
@@ -12,9 +12,13 @@ export const OTreatmentGrid = () => {
 
   return (
     <div className={classes.rootGrid}>
-      {treatments.slice(0, 3).map((treatment) => (
-        <OTreatmentCard key={treatment.id} {...treatment}/>
-      ))}
+      <Grid container spacing={0}>
+        {treatments.slice(0, 6).map((treatment) => (
+          <Grid item xs={4}>
+            <OTreatmentCard key={treatment.id} {...treatment}/>
+          </Grid>
+        ))}
+      </Grid>
     </div>
   )
 }

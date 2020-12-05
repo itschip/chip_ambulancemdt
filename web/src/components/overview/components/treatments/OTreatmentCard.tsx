@@ -1,4 +1,4 @@
-import { Card, CardActions, CardContent, Typography, Button } from '@material-ui/core'
+import { Card, CardActions, CardContent, Typography, Button, Grid } from '@material-ui/core'
 import React from 'react'
 import { useTreatmentDetail } from '../../../treatments/hooks/useTreatmentDetail';
 import { useTreatmentModal } from '../../../treatments/hooks/useTreatmentModal';
@@ -28,7 +28,7 @@ const OTreatmentCard = (treatment) => {
             fontWeight: 500
           }}
         >
-          {treatment.note}
+          {treatment.note.slice(0, 50)}[...]
         </Typography>
         <div className={classes.cardFooter}>
           <Typography>
