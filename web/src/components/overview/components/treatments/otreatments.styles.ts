@@ -31,7 +31,6 @@ const useStyles = makeStyles({
     marginBottom: -20
   },
   rootGrid: {
-    display: 'flex',
     marginTop: 20
   }
 });
