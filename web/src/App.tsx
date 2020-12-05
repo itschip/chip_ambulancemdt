@@ -18,6 +18,7 @@ import { EmployeeContainer } from './components/employees/EmployeeContainer';
 import { useEmployeeService } from './components/employees/hooks/useEmployeeService';
 import { useNotificationService } from './components/ui/Notification/hooks/useNotificationService';
 
+
 function App() {
   const { visibility } = useVisibility()
   useNuiService();
