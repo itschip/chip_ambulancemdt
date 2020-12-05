@@ -32,5 +32,5 @@ export default {
   EMPLOYEES_FETCH_EMPLOYEES: 'ambu:fetchAmbulanceEmployees',
   EMPLOYEES_SEND_EMPLOYEES: 'ambu:sendAmbulanceEmployees',
   EMPLOYEES_FETCH_JOBLABEL: 'ambu:fetchJobLabel',
-  EMPLOYEES_SEND_JOBLABEL: 'ambu:sendJobLabel'
+  EMPLOYEES_SEND_JOBLABEL: 'ambu:sendJobLabel',
 }
