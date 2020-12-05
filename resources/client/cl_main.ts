@@ -4,14 +4,6 @@ import { ESX } from './client';
 
 onNet('esx:setJob', (job: any) => {
   ESX.GetPlayerData().job = job
-
-  SendNuiMessage(
-    JSON.stringify({
-      app: "AMBULANCECAD",
-      method: "setJobGrade",
-      data: job.grade_label
-    })
-  )
 })
 
 let cadOpen = false;
@@ -35,14 +27,6 @@ RegisterCommand('journal', (source: any, args: any, raw: any) => {
       emitNet(events.FETCH_CREDENTIALS)
       emitNet(events.FETCH_AMBULANCEPLAYERS);
       emitNet(events.TREATMENTS_FETCH_ALL_TREATMENTS)
-
-      SendNuiMessage(
-        JSON.stringify({
-          app: "AMBULANCECAD",
-          method: "setJobGrade",
-          data: ESX.GetPlayerData().job.grade_label
-        })
-      )
 
     } else if (cadOpen) {
       cadOpen = false;
@@ -197,17 +181,27 @@ on(`__cfx_nui:${events.TREATMENTS_FETCH_EMPLOYEE_TREATMENTS}`, (data: any) => {
   emitNet(events.TREATMENTS_FETCH_EMPLOYEE_TREATMENTS, data.doctor)
 })
 
-RegisterNuiCallbackType(events.EMPLOYEES_FETCH_JOBLABEL);
-on(`__cfx_nui:${events.EMPLOYEES_FETCH_JOBLABEL}`, (data: any) => {
-  emitNet(events.EMPLOYEES_FETCH_JOBLABEL, data)
-})
-
 onNet(events.EMPLOYEES_SEND_EMPLOYEES, (employees: any) => {
   SendNuiMessage(
     JSON.stringify({
       app: 'AMBULANCECAD',
       method: 'setEmployees',
       data: employees
+    })
+  )
+})
+
+RegisterNuiCallbackType(events.EMPLOYEES_FETCH_JOBLABEL);
+on(`__cfx_nui:${events.EMPLOYEES_FETCH_JOBLABEL}`, (data: any) => {
+  emitNet(events.EMPLOYEES_FETCH_JOBLABEL, data)
+})
+
+onNet(events.EMPLOYEES_SEND_JOBLABEL, (jobLabel: string) => {
+  SendNuiMessage(
+    JSON.stringify({
+      app: "AMBULANCECAD",
+      method: "setJobGrade",
+      data: jobLabel
     })
   )
 })
